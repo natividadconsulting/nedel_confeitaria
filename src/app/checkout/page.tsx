@@ -89,9 +89,9 @@ export default function CheckoutPage() {
     notes: '',
     preferredTime: '',
   })
-  const [snapshot, setSnapshot] = useState<{ items: typeof items; total: number } | null>(null)
+  const [order, setOrder] = useState<{ waUrl: string; total: number } | null>(null)
 
-  if (items.length === 0 && !snapshot) {
+  if (items.length === 0 && !order) {
     return (
       <div className="min-h-screen bg-[#FDF8F0] flex flex-col items-center justify-center p-8 text-center">
         <span className="text-6xl mb-4">🛒</span>
@@ -104,9 +104,7 @@ export default function CheckoutPage() {
     )
   }
 
-  if (snapshot) {
-    const msg = buildWhatsAppMessage(snapshot.items, snapshot.total, form)
-    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`
+  if (order) {
 
     return (
       <div className="min-h-screen bg-[#FDF8F0] flex flex-col items-center justify-center p-6 text-center">
@@ -121,7 +119,7 @@ export default function CheckoutPage() {
           </p>
 
           <a
-            href={waUrl}
+            href={order.waUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => { clearCart(); setTimeout(() => router.push('/'), 1000) }}
@@ -134,7 +132,7 @@ export default function CheckoutPage() {
           </a>
 
           <p className="text-xs text-stone-400 mt-4">
-            Total: <strong className="text-stone-600">{formatPrice(snapshot.total)}</strong>
+            Total: <strong className="text-stone-600">{formatPrice(order.total)}</strong>
             {form.paymentMethod === 'pix' && <> · Chave PIX: <strong>{PIX_KEY}</strong></>}
           </p>
         </div>
@@ -301,7 +299,11 @@ export default function CheckoutPage() {
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#FDF8F0] border-t border-amber-100">
         <div className="max-w-xl mx-auto">
           <button
-            onClick={() => setSnapshot({ items: [...items], total })}
+            onClick={() => {
+                console.log('CHECKOUT DEBUG items:', JSON.stringify(items), 'total:', total)
+                const msg = buildWhatsAppMessage(items, total, form)
+                setOrder({ waUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, total })
+              }}
             disabled={!isValid}
             className="w-full bg-amber-600 hover:bg-amber-700 disabled:bg-stone-300 disabled:cursor-not-allowed text-white font-bold py-4 rounded-2xl text-base transition-colors flex items-center justify-between px-5"
           >

@@ -1,5 +1,13 @@
 # Project Notes — Nedel Confeitaria
 
+## Deployment Notes
+
+### Vercel Hobby Plan — Image Warning
+All pages are fully static (no serverless functions), so function invocation/CPU limits are not a concern. The only limit at risk is **100 GB bandwidth/month**. When product photos are added later:
+- Compress images before uploading (target <100 KB each)
+- Consider serving images from Cloudflare or another CDN rather than Vercel directly
+- Unoptimized images are the fastest path to hitting the bandwidth cap on Hobby
+
 ## Kit Compositions
 
 ### Kit Torta 1 & 2 — Pelotine
