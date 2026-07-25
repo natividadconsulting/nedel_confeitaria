@@ -1,7 +1,7 @@
 import { Category } from '@/types'
 
 const TORTAS_TRADICIONAIS_SIZES = [
-  { label: 'Mini Torta', slices: 10, price: 65 },
+  { label: 'Mini', slices: 10, price: 65 },
   { label: 'Pequena', slices: 15, price: 105 },
   { label: 'Chapinha', slices: 15, price: 110 },
   { label: 'Média', slices: 20, price: 130 },
@@ -33,7 +33,7 @@ const TORTAS_TRADICIONAIS_RECHEIOS = [
 ]
 
 const TORTAS_ESPECIAIS_SIZES = [
-  { label: 'Mini Torta', slices: 10, price: 80 },
+  { label: 'Mini', slices: 10, price: 80 },
   { label: 'Pequena', slices: 15, price: 120 },
   { label: 'Chapinha', slices: 15, price: 130 },
   { label: 'Média', slices: 20, price: 150 },
