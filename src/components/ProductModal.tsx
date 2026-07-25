@@ -30,7 +30,7 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
   const [withPelotine, setWithPelotine] = useState(false)
 
   const isSalgadoBulk = product.type === 'bulk' && categoryId.startsWith('salgados-') && categoryId !== 'salgados-lanche'
-  const showPelotine = (isSalgadoBulk && selectedBulk?.quantity === 100) || product.pelotine === 'sem-com'
+  const showPelotine = (isSalgadoBulk && selectedBulk?.quantity === 100 && product.pelotine !== 'com-only') || product.pelotine === 'sem-com'
   const comOnlyPelotine = product.pelotine === 'com-only'
 
   useEffect(() => {
