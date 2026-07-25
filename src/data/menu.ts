@@ -412,8 +412,8 @@ export const categories: Category[] = [
         bulkOptions: SALGADOS_TRAD_BULK,
       },
       {
-        id: 'empadinha-frango-requeijao',
-        name: 'Empadinha de Frango com Requeijão',
+        id: 'croquete-frango-requeijao',
+        name: 'Croquete de Frango com Requeijão',
         type: 'bulk',
         subcategory: 'Fritos',
         bulkOptions: SALGADOS_TRAD_BULK,
