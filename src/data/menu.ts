@@ -614,7 +614,7 @@ export const categories: Category[] = [
       // Outros
       {
         id: 'michel-tele',
-        name: 'Michel Telê',
+        name: 'Michel Telô',
         type: 'bulk',
         subcategory: 'Especiais',
         pelotine: 'com-only',
