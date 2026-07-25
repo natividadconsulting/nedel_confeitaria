@@ -54,6 +54,9 @@ function buildWhatsAppMessage(items: ReturnType<typeof useCart>['items'], total:
     if (detail) {
       lines.push(`• ${item.name}`)
       lines.push(`  ↳ ${detail}`)
+      if (item.breakdown && item.breakdown.length > 0) {
+        item.breakdown.forEach(b => lines.push(`  ↳ ${b.quantity}× ${b.name}`))
+      }
       lines.push(`  ↳ ${item.quantity}x ${formatPrice(item.unitPrice)} = ${lineTotal}`)
     } else {
       lines.push(`• ${item.name} — ${item.quantity}x ${formatPrice(item.unitPrice)} = ${lineTotal}`)
@@ -164,6 +167,13 @@ export default function CheckoutPage() {
                   <p className="text-sm font-medium text-stone-800">{item.name}</p>
                   {itemLabel(item) && (
                     <p className="text-xs text-stone-500 mt-0.5">{itemLabel(item)}</p>
+                  )}
+                  {item.breakdown && item.breakdown.length > 0 && (
+                    <div className="mt-1 space-y-0.5">
+                      {item.breakdown.map((b, i) => (
+                        <p key={i} className="text-xs text-stone-400">{b.quantity}× {b.name}</p>
+                      ))}
+                    </div>
                   )}
                   {item.notes && <p className="text-xs text-amber-600 mt-0.5 italic">{item.notes}</p>}
                   <p className="text-xs text-stone-400 mt-0.5">{item.quantity}x {formatPrice(item.unitPrice)}</p>

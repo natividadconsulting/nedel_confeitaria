@@ -47,6 +47,13 @@ export default function CartSidebar() {
                     {itemLabel(item) && (
                       <p className="text-xs text-stone-500 mt-0.5 leading-tight">{itemLabel(item)}</p>
                     )}
+                    {item.breakdown && item.breakdown.length > 0 && (
+                      <div className="mt-1 space-y-0.5">
+                        {item.breakdown.map((b, i) => (
+                          <p key={i} className="text-xs text-stone-400">{b.quantity}× {b.name}</p>
+                        ))}
+                      </div>
+                    )}
                     {item.notes && (
                       <p className="text-xs text-amber-600 mt-0.5 italic">{item.notes}</p>
                     )}

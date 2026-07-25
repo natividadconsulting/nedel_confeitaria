@@ -6,6 +6,7 @@ import { Product } from '@/types'
 import { useCart } from '@/context/CartContext'
 import ProductModal from '@/components/ProductModal'
 import CartSidebar from '@/components/CartSidebar'
+import BandejaModal from '@/components/BandejaModal'
 
 function formatPrice(n: number) {
   return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
@@ -23,6 +24,7 @@ export default function Home() {
   const { itemCount, total, setIsOpen } = useCart()
   const [activeCategory, setActiveCategory] = useState(categories[0].id)
   const [selectedProduct, setSelectedProduct] = useState<{ product: Product; categoryId: string; categoryName: string } | null>(null)
+  const [showBandeja, setShowBandeja] = useState(false)
 
   const activeCat = categories.find(c => c.id === activeCategory)!
 
@@ -90,6 +92,21 @@ export default function Home() {
 
       {/* Products */}
       <main className="max-w-2xl mx-auto px-4 pb-28 space-y-6 mt-2">
+        {/* Bandeja banner for Salgados Tradicionais */}
+        {activeCat.id === 'salgados-tradicionais' && (
+          <button
+            onClick={() => setShowBandeja(true)}
+            className="w-full bg-amber-600 hover:bg-amber-700 text-white rounded-2xl p-4 text-left transition-colors"
+          >
+            <p className="font-bold text-base">🥟 Montar Bandeja</p>
+            <p className="text-sm text-amber-100 mt-0.5">Mix de salgados à sua escolha — 50un ou 100un</p>
+            <div className="flex gap-4 mt-2 text-xs text-amber-200">
+              <span>50un · R$67,50</span>
+              <span>100un · R$120,00</span>
+            </div>
+          </button>
+        )}
+
         {Object.entries(grouped).map(([subcat, products]) => (
           <div key={subcat}>
             {subcat && (
@@ -150,6 +167,13 @@ export default function Home() {
             <span className="font-bold">{formatPrice(total)}</span>
           </button>
         </div>
+      )}
+
+      {showBandeja && (
+        <BandejaModal
+          products={activeCat.products}
+          onClose={() => setShowBandeja(false)}
+        />
       )}
 
       {selectedProduct && (

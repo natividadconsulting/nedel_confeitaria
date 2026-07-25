@@ -58,6 +58,7 @@ export interface CartItem {
   quantity: number
   unitPrice: number
   notes?: string
+  breakdown?: { name: string; quantity: number }[]
 }
 
 export interface CheckoutData {
