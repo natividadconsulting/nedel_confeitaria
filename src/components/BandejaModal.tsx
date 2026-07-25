@@ -50,7 +50,7 @@ export default function BandejaModal({ products, onClose }: Props) {
     addItem({
       productId: 'bandeja-salgados-tradicionais',
       categoryId: 'salgados-tradicionais',
-      name: 'Bandeja de Salgados Tradicionais',
+      name: 'Caixa de Salgados Tradicionais',
       quantity: 1,
       unitPrice: tierPrice,
       bulkLabel: `${bandejaSize} unidades`,
@@ -65,7 +65,7 @@ export default function BandejaModal({ products, onClose }: Props) {
         {/* Header */}
         <div className="px-5 py-4 border-b border-stone-100 flex items-center justify-between shrink-0">
           <div>
-            <h2 className="text-lg font-bold text-stone-800">Montar Bandeja</h2>
+            <h2 className="text-lg font-bold text-stone-800">Montar Sua Caixa</h2>
             <p className="text-xs text-stone-500">Salgados Tradicionais</p>
           </div>
           <button onClick={onClose} className="text-stone-400 hover:text-stone-600 text-2xl leading-none">×</button>
@@ -74,7 +74,7 @@ export default function BandejaModal({ products, onClose }: Props) {
         <div className="overflow-y-auto flex-1 p-5 space-y-5">
           {/* Tier selector */}
           <div>
-            <p className="text-sm font-semibold text-stone-700 mb-2">Tamanho da bandeja</p>
+            <p className="text-sm font-semibold text-stone-700 mb-2">Tamanho da caixa</p>
             <div className="grid grid-cols-2 gap-2">
               {([50, 100] as const).map(size => (
                 <button
@@ -97,7 +97,7 @@ export default function BandejaModal({ products, onClose }: Props) {
             remaining === 0 ? 'bg-green-50 border border-green-200' : 'bg-amber-50 border border-amber-100'
           }`}>
             <span className="text-sm font-medium text-stone-700">
-              {remaining === 0 ? '✅ Bandeja completa!' : `Faltam ${remaining} salgados`}
+              {remaining === 0 ? '✅ Caixa completa!' : `Faltam ${remaining} salgados`}
             </span>
             <span className={`text-lg font-bold ${remaining === 0 ? 'text-green-700' : 'text-amber-700'}`}>
               {total}/{bandejaSize}

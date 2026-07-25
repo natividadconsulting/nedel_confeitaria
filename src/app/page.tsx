@@ -98,7 +98,7 @@ export default function Home() {
             onClick={() => setShowBandeja(true)}
             className="w-full bg-amber-600 hover:bg-amber-700 text-white rounded-2xl p-4 text-left transition-colors"
           >
-            <p className="font-bold text-base">🥟 Montar Bandeja</p>
+            <p className="font-bold text-base">🥟 Montar Sua Caixa</p>
             <p className="text-sm text-amber-100 mt-0.5">Mix de salgados à sua escolha — 50un ou 100un</p>
             <div className="flex gap-4 mt-2 text-xs text-amber-200">
               <span>50un · R$67,50</span>
