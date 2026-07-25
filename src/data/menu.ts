@@ -984,6 +984,13 @@ export const categories: Category[] = [
     description: '10 fatias por bolo',
     products: [
       {
+        id: 'bolo-cenoura',
+        name: 'Bolo de Cenoura',
+        type: 'simple',
+        price: 29.90,
+        priceNote: '10 fatias',
+      },
+      {
         id: 'bolo-chocolate',
         name: 'Bolo de Chocolate',
         type: 'simple',
@@ -991,15 +998,29 @@ export const categories: Category[] = [
         priceNote: '10 fatias',
       },
       {
-        id: 'bolo-laranja',
-        name: 'Bolo de Laranja',
+        id: 'bolo-milho-goiabada',
+        name: 'Bolo de Milho com Goiabada',
         type: 'simple',
         price: 29.90,
         priceNote: '10 fatias',
       },
       {
-        id: 'bolo-tradicional',
-        name: 'Bolo Tradicional (consultar sabor)',
+        id: 'bolo-portugues-creme',
+        name: 'Bolo Português de Creme',
+        type: 'simple',
+        price: 29.90,
+        priceNote: '10 fatias',
+      },
+      {
+        id: 'bolo-portugues-nozes',
+        name: 'Bolo Português de Nozes',
+        type: 'simple',
+        price: 29.90,
+        priceNote: '10 fatias',
+      },
+      {
+        id: 'bolo-laranja',
+        name: 'Bolo de Laranja',
         type: 'simple',
         price: 29.90,
         priceNote: '10 fatias',
