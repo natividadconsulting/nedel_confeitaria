@@ -288,7 +288,7 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
           {/* Pelotine toggle */}
           {showPelotine && (
             <div>
-              <p className="text-sm font-semibold text-stone-700 mb-2">Pelotine (coperinha)</p>
+              <p className="text-sm font-semibold text-stone-700 mb-2">Pelotine</p>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => setWithPelotine(false)}
