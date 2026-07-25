@@ -1,5 +1,10 @@
 # Action Items — Nedel Confeitaria
 
+## Menu Data
+
+### Doces Gourmet e Doces Especiais — Bulk pricing
+Confirm 50-unit and 100-unit prices with Roseli for both Doces Gourmet and Doces Especiais. Once confirmed, add bulk options and "Montar Sua Caixa" to these two categories.
+
 ## Features
 
 ### Salgados Tradicionais — Mix & Match bulk pricing
