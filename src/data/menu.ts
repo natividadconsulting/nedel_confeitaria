@@ -186,7 +186,7 @@ export const categories: Category[] = [
     id: 'torta-fria',
     name: 'Torta Fria',
     emoji: '🥶',
-    description: 'A unidade',
+    description: 'Sob encomenda',
     products: [
       {
         id: 'torta-fria-frango',
@@ -229,7 +229,7 @@ export const categories: Category[] = [
     id: 'quiches',
     name: 'Quiches',
     emoji: '🥧',
-    description: 'R$70,00 • 15 fatias',
+    description: '15 fatias por quiche',
     products: [
       {
         id: 'quiche-alho-poro',
@@ -265,7 +265,7 @@ export const categories: Category[] = [
     id: 'salgados-tradicionais',
     name: 'Salgados Tradicionais',
     emoji: '🥟',
-    description: 'Assados e fritos — por unidade, 50un ou 100un',
+    description: 'Assados e fritos sob encomenda',
     products: [
       // ASSADOS
       {
@@ -436,7 +436,7 @@ export const categories: Category[] = [
     id: 'salgados-especiais',
     name: 'Salgados Especiais',
     emoji: '⭐',
-    description: 'Mini Pizzas, Kibes e Empadinhas — R$1,50/un • 50un R$75 • 100un R$135',
+    description: 'Mini Pizzas, Kibes, Empadinhas e Especialidades',
     products: [
       {
         id: 'mini-pizza-calabresa',
@@ -516,7 +516,7 @@ export const categories: Category[] = [
     id: 'salgados-diferenciados',
     name: 'Salgados Diferenciados',
     emoji: '👑',
-    description: 'R$1,90/un • 50un R$95 • 100un R$160',
+    description: 'Canapés, mini croissants, pastéis suíços e mais',
     products: [
       // Canapés
       {
@@ -695,7 +695,7 @@ export const categories: Category[] = [
     id: 'salgados-lanche',
     name: 'Salgados Lanche',
     emoji: '🍔',
-    description: 'Lanches e pastéis por unidade',
+    description: 'Lanches e pastéis',
     products: [
       {
         id: 'pastel-frito-carne-ovo',
@@ -763,7 +763,7 @@ export const categories: Category[] = [
     id: 'doces-gourmet',
     name: 'Doces Gourmet',
     emoji: '🍫',
-    description: 'R$2,50 por unidade',
+    description: 'Doces finos e artesanais',
     products: [
       {
         id: 'churros-gourmet',
@@ -806,7 +806,7 @@ export const categories: Category[] = [
     id: 'doces-tradicionais',
     name: 'Doces Tradicionais',
     emoji: '🍬',
-    description: 'R$1,50/un • 50un R$75 • 100un R$120',
+    description: 'Brigadeiros, branquinhos e mais',
     products: [
       {
         id: 'brigadeiro',
@@ -868,7 +868,7 @@ export const categories: Category[] = [
     id: 'doces-especiais',
     name: 'Doces Especiais',
     emoji: '🍭',
-    description: 'R$3,00 por unidade',
+    description: 'Panelinhas, trufas e brownies',
     products: [
       {
         id: 'panelinhas',
@@ -939,7 +939,7 @@ export const categories: Category[] = [
     id: 'bolos-caseiros-especiais',
     name: 'Bolos Caseiros Especiais',
     emoji: '🎁',
-    description: 'R$34,90 • 10 fatias',
+    description: '10 fatias por bolo',
     products: [
       {
         id: 'bolo-ninho',
@@ -975,7 +975,7 @@ export const categories: Category[] = [
     id: 'bolos-tradicionais',
     name: 'Bolos Tradicionais',
     emoji: '🍞',
-    description: 'R$29,90 • 10 fatias',
+    description: '10 fatias por bolo',
     products: [
       {
         id: 'bolo-chocolate',
