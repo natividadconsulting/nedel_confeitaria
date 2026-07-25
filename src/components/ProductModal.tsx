@@ -161,7 +161,7 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
             }, {})
             return (
               <div className="space-y-3">
-                <p className="text-sm font-semibold text-stone-700">Tamanho</p>
+                <p className="text-sm font-semibold text-stone-700">Tipo e Tamanho</p>
                 {Object.entries(groups).map(([group, sizes]) => (
                   <div key={group}>
                     <p className="text-xs font-semibold text-stone-500 uppercase tracking-wide mb-1.5">{group}</p>
