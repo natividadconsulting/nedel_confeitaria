@@ -150,7 +150,7 @@ export const categories: Category[] = [
         name: 'Kit Torta 1',
         type: 'kit-with-cake',
         price: 162.50,
-        description: '50 salgados + 20 doces (10 Brigadeiro • 10 Branquinho) + Torta Mini',
+        description: '50 salgados + 20 doces (10 Brigadeiro • 10 Branquinho) + Torta Mini (10 fatias)',
         fillings: ['Branquinho e Brigadeiro', 'Marta Rocha'],
       },
       {
