@@ -438,6 +438,7 @@ export const categories: Category[] = [
         name: 'Mini Pizza de Calabresa',
         type: 'bulk',
         subcategory: 'Mini Pizzas',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_ESP_BULK,
       },
       {
@@ -445,6 +446,7 @@ export const categories: Category[] = [
         name: 'Mini Pizza de Frango',
         type: 'bulk',
         subcategory: 'Mini Pizzas',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_ESP_BULK,
       },
       {
@@ -452,6 +454,7 @@ export const categories: Category[] = [
         name: 'Mini Pizza de Presunto e Queijo',
         type: 'bulk',
         subcategory: 'Mini Pizzas',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_ESP_BULK,
       },
       {
@@ -459,6 +462,7 @@ export const categories: Category[] = [
         name: 'Mini Pizza Portuguesa',
         type: 'bulk',
         subcategory: 'Mini Pizzas',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_ESP_BULK,
       },
       {
@@ -466,6 +470,7 @@ export const categories: Category[] = [
         name: 'Kibe Tradicional',
         type: 'bulk',
         subcategory: 'Kibes',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_ESP_BULK,
       },
       {
@@ -473,6 +478,7 @@ export const categories: Category[] = [
         name: 'Kibe com Requeijão',
         type: 'bulk',
         subcategory: 'Kibes',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_ESP_BULK,
       },
       {
@@ -480,6 +486,7 @@ export const categories: Category[] = [
         name: 'Empadinha Francesa de Frango',
         type: 'bulk',
         subcategory: 'Empadinhas Francesas',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_ESP_BULK,
       },
       {
@@ -487,6 +494,7 @@ export const categories: Category[] = [
         name: 'Empadinha Francesa de Palmito',
         type: 'bulk',
         subcategory: 'Empadinhas Francesas',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_ESP_BULK,
       },
       {
