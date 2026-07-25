@@ -26,8 +26,8 @@ const TORTAS_TRADICIONAIS_RECHEIOS = [
   'Branquinho, Brigadeiro com Morangos',
   'Torta de Brigadeiro',
   'Torta de Brigadeiro com Doce de Leite',
-  'Torta Nata com Morangos',
   'Torta Brigadeiro com Morangos',
+  'Torta Nata com Morangos',
   'Torta Nata, Brigadeiro e Morangos',
   'Torta Prestígio — branquinho, brigadeiro e coco fresco',
 ]
