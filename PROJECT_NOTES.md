@@ -41,6 +41,16 @@ These belong in **Salgados Especiais** under the "Especialidades" subcategory, s
 ## Salgados Especiais — Subcategories
 Four subcategories: Mini Pizzas, Kibes, Empadinhas Francesas, Especialidades. The Especialidades section contains per-unit only items (Mini Cachorro Quente, Mini Hambúrguer) that don't follow the bulk pricing tiers.
 
+## QA Status
+
+Sections reviewed and confirmed accurate as of 2026-07-25:
+- ✅ Kits
+- ✅ Tortas Tradicionais
+- ✅ Tortas Sobremesa
+- ✅ Torta Fria
+- ✅ Quiches
+- ✅ Salgados Tradicionais
+
 ## Kit Compositions
 
 ### Kit Torta 1 & 2 — Pelotine
