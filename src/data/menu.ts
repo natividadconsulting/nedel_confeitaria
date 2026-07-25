@@ -36,11 +36,6 @@ const SALGADOS_TRAD_BULK = [
 ]
 
 
-const RISOLES_BULK = [
-  { label: 'Por unidade', quantity: 1, price: 1.25 },
-  { label: '50 unidades', quantity: 50, price: 62.50 },
-  { label: '100 unidades', quantity: 100, price: 115 },
-]
 
 const SALGADOS_ESP_BULK = [
   { label: 'Por unidade', quantity: 1, price: 1.50 },
@@ -386,21 +381,21 @@ export const categories: Category[] = [
         name: 'Risoles de Frango',
         type: 'bulk',
         subcategory: 'Fritos',
-        bulkOptions: RISOLES_BULK,
+        bulkOptions: SALGADOS_TRAD_BULK,
       },
       {
         id: 'risoles-carne',
         name: 'Risoles de Carne',
         type: 'bulk',
         subcategory: 'Fritos',
-        bulkOptions: RISOLES_BULK,
+        bulkOptions: SALGADOS_TRAD_BULK,
       },
       {
         id: 'risoles-presunto-queijo',
         name: 'Risoles de Presunto e Queijo',
         type: 'bulk',
         subcategory: 'Fritos',
-        bulkOptions: RISOLES_BULK,
+        bulkOptions: SALGADOS_TRAD_BULK,
       },
       {
         id: 'empadinha-queijo',
