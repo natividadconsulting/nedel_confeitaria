@@ -8,6 +8,11 @@ All pages are fully static (no serverless functions), so function invocation/CPU
 - Consider serving images from Cloudflare or another CDN rather than Vercel directly
 - Unoptimized images are the fastest path to hitting the bandwidth cap on Hobby
 
+## UI / Terminology Decisions
+
+### Tortas: "Recheio" → "Sabor"
+Both Tortas Tradicionais and Tortas Especiais use **Sabor** as the picker label (not Recheio). In the data, both use the `flavors` field so the modal renders the "Sabor" heading consistently across torta categories.
+
 ## Kit Compositions
 
 ### Kit Torta 1 & 2 — Pelotine

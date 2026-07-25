@@ -11,7 +11,7 @@ const TORTAS_TRADICIONAIS_SIZES = [
   { label: 'Extra Grande', slices: 60, price: 320, group: 'Tortas Quadradas' },
 ]
 
-const TORTAS_TRADICIONAIS_RECHEIOS = [
+const TORTAS_TRADICIONAIS_SABORES = [
   'Torta da Casa — branquinho com nozes e mousse de chocolate com bombons',
   'Torta Delicata — ovos moles, mousse de chocolate e morangos',
   'Torta Imperatriz — nata batida branca com abacaxi e doce de leite',
@@ -177,7 +177,7 @@ export const categories: Category[] = [
         name: 'Torta Tradicional',
         type: 'cake',
         sizes: TORTAS_TRADICIONAIS_SIZES,
-        fillings: TORTAS_TRADICIONAIS_RECHEIOS,
+        flavors: TORTAS_TRADICIONAIS_SABORES,
       },
     ],
   },
