@@ -60,16 +60,6 @@ const TORTAS_SOBREMESA_SIZES = [
   { label: 'Média', slices: 20, price: 150 },
 ]
 
-const TORTAS_SOBREMESA_SABORES = [
-  'Cheesecake 4 Sabores',
-  'Pudim Inteiro',
-  'Quindão Inteiro',
-  'Banoffe',
-  'Torta de Limão',
-  'Torta de Limão e Morangos',
-  'Pavê Branquinho e Brigadeiro',
-  'Torta Red Velvet',
-]
 
 const SALGADOS_TRAD_BULK = [
   { label: 'Por unidade', quantity: 1, price: 1.35 },
@@ -202,13 +192,14 @@ export const categories: Category[] = [
     emoji: '🍰',
     description: 'Sobremesas especiais sob encomenda',
     products: [
-      {
-        id: 'torta-sobremesa',
-        name: 'Torta Sobremesa',
-        type: 'cake',
-        sizes: TORTAS_SOBREMESA_SIZES,
-        flavors: TORTAS_SOBREMESA_SABORES,
-      },
+      { id: 'sobremesa-cheesecake', name: 'Cheesecake 4 Sabores', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
+      { id: 'sobremesa-pudim', name: 'Pudim Inteiro', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
+      { id: 'sobremesa-quindao', name: 'Quindão Inteiro', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
+      { id: 'sobremesa-banoffe', name: 'Banoffe', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
+      { id: 'sobremesa-limao', name: 'Torta de Limão', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
+      { id: 'sobremesa-limao-morango', name: 'Torta de Limão e Morangos', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
+      { id: 'sobremesa-pave', name: 'Pavê Branquinho e Brigadeiro', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
+      { id: 'sobremesa-red-velvet', name: 'Torta Red Velvet', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
     ],
   },
   {
