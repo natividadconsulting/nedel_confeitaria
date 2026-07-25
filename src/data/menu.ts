@@ -436,7 +436,7 @@ export const categories: Category[] = [
     id: 'salgados-especiais',
     name: 'Salgados Especiais',
     emoji: '⭐',
-    description: 'R$1,50/un • 50un R$75 • 100un R$135',
+    description: 'Mini Pizzas, Kibes e Empadinhas — R$1,50/un • 50un R$75 • 100un R$135',
     products: [
       {
         id: 'mini-pizza-calabresa',
