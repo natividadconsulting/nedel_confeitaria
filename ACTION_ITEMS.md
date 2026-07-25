@@ -8,8 +8,11 @@
 ### Tortas Doces
 - No category exists yet for "Tortas Doces" (currently there is Tortas Tradicionais, Tortas Especiais, and Tortas Sobremesa — clarify if Tortas Doces is a separate section or an alias for one of these).
 
+### Tortas Tradicionais
+- Recheio options are somewhat incorrect and need to be reviewed and fixed in `src/data/menu.ts`.
+
 ### Tortas Especiais
-- Not all cake flavors/varieties are currently listed — review the full catalog and add missing items to the `tortas-especiais` category in `src/data/menu.ts`.
+- Sabor options are somewhat incorrect and need to be reviewed and fixed in `src/data/menu.ts`.
 
 ### Salgados Diferenciados — 100un Pelotine
 - **Open question:** For the 100 unidades option (R$160), is that already the *com pelotine* price (no sem option), or is R$160 the *sem pelotine* base price (and com pelotine would calculate to ~R$166,50 via ×1.04)?
