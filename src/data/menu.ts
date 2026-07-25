@@ -398,20 +398,6 @@ export const categories: Category[] = [
         bulkOptions: SALGADOS_TRAD_BULK,
       },
       {
-        id: 'empadinha-queijo',
-        name: 'Empadinha de Requeijão',
-        type: 'bulk',
-        subcategory: 'Fritos',
-        bulkOptions: SALGADOS_TRAD_BULK,
-      },
-      {
-        id: 'croquete-queijo',
-        name: 'Croquete de Carne com Requeijão',
-        type: 'bulk',
-        subcategory: 'Fritos',
-        bulkOptions: SALGADOS_TRAD_BULK,
-      },
-      {
         id: 'enroladinho-salsicha',
         name: 'Enroladinho de Salsicha',
         type: 'bulk',
@@ -421,6 +407,20 @@ export const categories: Category[] = [
       {
         id: 'bolinha-queijo',
         name: 'Bolinha de Queijo',
+        type: 'bulk',
+        subcategory: 'Fritos',
+        bulkOptions: SALGADOS_TRAD_BULK,
+      },
+      {
+        id: 'empadinha-frango-requeijao',
+        name: 'Empadinha de Frango com Requeijão',
+        type: 'bulk',
+        subcategory: 'Fritos',
+        bulkOptions: SALGADOS_TRAD_BULK,
+      },
+      {
+        id: 'croquete-queijo',
+        name: 'Croquete de Carne com Requeijão',
         type: 'bulk',
         subcategory: 'Fritos',
         bulkOptions: SALGADOS_TRAD_BULK,
