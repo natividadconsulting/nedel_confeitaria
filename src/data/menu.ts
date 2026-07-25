@@ -685,6 +685,14 @@ export const categories: Category[] = [
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
+        id: 'mini-quiche-calabresa',
+        name: 'Mini Quiche de Calabresa',
+        type: 'bulk',
+        subcategory: 'Mini Quiches',
+        pelotine: 'com-only',
+        bulkOptions: SALGADOS_DIF_BULK,
+      },
+      {
         id: 'mini-quiche-brocolis',
         name: 'Mini Quiche de Brócolis',
         type: 'bulk',
@@ -695,14 +703,6 @@ export const categories: Category[] = [
       {
         id: 'mini-quiche-alho-poro',
         name: 'Mini Quiche de Alho Poró',
-        type: 'bulk',
-        subcategory: 'Mini Quiches',
-        pelotine: 'com-only',
-        bulkOptions: SALGADOS_DIF_BULK,
-      },
-      {
-        id: 'mini-quiche-calabresa',
-        name: 'Mini Quiche de Calabresa',
         type: 'bulk',
         subcategory: 'Mini Quiches',
         pelotine: 'com-only',
