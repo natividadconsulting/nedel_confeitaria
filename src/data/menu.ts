@@ -782,7 +782,7 @@ export const categories: Category[] = [
         id: 'branquinho-gourmet',
         name: 'Branquinho Gourmet',
         type: 'per-unit',
-        description: 'Branquinho coberto com cobertura de leite ninho e Nutella',
+        description: 'Branquinho com leite ninho com cobertura de leite ninho e Nutella',
         unitPrice: 2.50,
       },
       {
