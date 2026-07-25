@@ -68,5 +68,6 @@ export interface CheckoutData {
   address?: string
   paymentMethod: 'pix' | 'cartao-retirada' | 'cartao-entrega'
   notes?: string
+  preferredDate?: string
   preferredTime?: string
 }

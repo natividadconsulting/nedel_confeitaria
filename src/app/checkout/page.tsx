@@ -42,8 +42,12 @@ function buildWhatsAppMessage(items: ReturnType<typeof useCart>['items'], total:
   }
   lines.push(`💳 *Pagamento:* ${paymentLabels[data.paymentMethod]}`)
 
-  if (data.preferredTime) {
-    lines.push(`⏰ *Horário preferido:* ${data.preferredTime}`)
+  if (data.preferredDate || data.preferredTime) {
+    const datePart = data.preferredDate
+      ? new Date(data.preferredDate + 'T12:00:00').toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' })
+      : ''
+    const timePart = data.preferredTime ? `às ${data.preferredTime}` : ''
+    lines.push(`⏰ *Data/Horário preferido:* ${[datePart, timePart].filter(Boolean).join(' ')}`)
   }
 
   lines.push('', '*── ITENS DO PEDIDO ──*', '')
@@ -90,6 +94,7 @@ export default function CheckoutPage() {
     address: '',
     paymentMethod: 'pix',
     notes: '',
+    preferredDate: '',
     preferredTime: '',
   })
   const [order, setOrder] = useState<{ waUrl: string; total: number } | null>(null)
@@ -215,14 +220,21 @@ export default function CheckoutPage() {
           </div>
 
           <div>
-            <label className="text-sm font-medium text-stone-600 block mb-1">Horário preferido</label>
-            <input
-              type="text"
-              value={form.preferredTime}
-              onChange={e => setForm(f => ({ ...f, preferredTime: e.target.value }))}
-              placeholder="Ex: sábado às 18h"
-              className="w-full border-2 border-stone-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-amber-400"
-            />
+            <label className="text-sm font-medium text-stone-600 block mb-1">Data e horário preferidos</label>
+            <div className="grid grid-cols-2 gap-2">
+              <input
+                type="date"
+                value={form.preferredDate}
+                onChange={e => setForm(f => ({ ...f, preferredDate: e.target.value }))}
+                className="w-full border-2 border-stone-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-amber-400"
+              />
+              <input
+                type="time"
+                value={form.preferredTime}
+                onChange={e => setForm(f => ({ ...f, preferredTime: e.target.value }))}
+                className="w-full border-2 border-stone-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-amber-400"
+              />
+            </div>
           </div>
         </div>
 
