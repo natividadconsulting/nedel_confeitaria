@@ -10,10 +10,12 @@ function formatPrice(n: number) {
 
 interface Props {
   products: Product[]
+  categoryId: string
+  categoryName: string
   onClose: () => void
 }
 
-export default function BandejaModal({ products, onClose }: Props) {
+export default function BandejaModal({ products, categoryId, categoryName, onClose }: Props) {
   const { addItem } = useCart()
   const [bandejaSize, setBandejaSize] = useState<50 | 100>(100)
   const [quantities, setQuantities] = useState<Record<string, number>>({})
@@ -48,9 +50,9 @@ export default function BandejaModal({ products, onClose }: Props) {
       .filter(p => (quantities[p.id] ?? 0) > 0)
       .map(p => ({ name: p.name, quantity: quantities[p.id] }))
     addItem({
-      productId: 'bandeja-salgados-tradicionais',
-      categoryId: 'salgados-tradicionais',
-      name: 'Caixa de Salgados Tradicionais',
+      productId: `caixa-${categoryId}`,
+      categoryId,
+      name: `Caixa de ${categoryName}`,
       quantity: 1,
       unitPrice: tierPrice,
       bulkLabel: `${bandejaSize} unidades`,
@@ -66,7 +68,7 @@ export default function BandejaModal({ products, onClose }: Props) {
         <div className="px-5 py-4 border-b border-stone-100 flex items-center justify-between shrink-0">
           <div>
             <h2 className="text-lg font-bold text-stone-800">Montar Sua Caixa</h2>
-            <p className="text-xs text-stone-500">Salgados Tradicionais</p>
+            <p className="text-xs text-stone-500">{categoryName}</p>
           </div>
           <button onClick={onClose} className="text-stone-400 hover:text-stone-600 text-2xl leading-none">×</button>
         </div>

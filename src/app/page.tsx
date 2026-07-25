@@ -28,6 +28,11 @@ export default function Home() {
 
   const activeCat = categories.find(c => c.id === activeCategory)!
 
+  const CAIXA_CATEGORIES = new Set(['salgados-tradicionais', 'salgados-especiais', 'salgados-diferenciados', 'doces-tradicionais'])
+  const caixaProducts = activeCat.products.filter(p => p.type === 'bulk')
+  const showCaixaBanner = CAIXA_CATEGORIES.has(activeCat.id) && caixaProducts.length > 0
+  const caixaTiers = caixaProducts[0]?.bulkOptions ?? []
+
   const grouped = activeCat.products.reduce<Record<string, Product[]>>((acc, p) => {
     const key = p.subcategory ?? ''
     if (!acc[key]) acc[key] = []
@@ -92,17 +97,18 @@ export default function Home() {
 
       {/* Products */}
       <main className="max-w-2xl mx-auto px-4 pb-28 space-y-6 mt-2">
-        {/* Bandeja banner for Salgados Tradicionais */}
-        {activeCat.id === 'salgados-tradicionais' && (
+        {/* Caixa banner */}
+        {showCaixaBanner && (
           <button
             onClick={() => setShowBandeja(true)}
             className="w-full bg-amber-600 hover:bg-amber-700 text-white rounded-2xl p-4 text-left transition-colors"
           >
             <p className="font-bold text-base">🥟 Montar Sua Caixa</p>
-            <p className="text-sm text-amber-100 mt-0.5">Mix de salgados à sua escolha — 50un ou 100un</p>
+            <p className="text-sm text-amber-100 mt-0.5">Mix à sua escolha — 50un ou 100un</p>
             <div className="flex gap-4 mt-2 text-xs text-amber-200">
-              <span>50un · R$67,50</span>
-              <span>100un · R$120,00</span>
+              {caixaTiers.filter(t => t.quantity >= 50).map(t => (
+                <span key={t.quantity}>{t.quantity}un · {formatPrice(t.price)}</span>
+              ))}
             </div>
           </button>
         )}
@@ -171,7 +177,9 @@ export default function Home() {
 
       {showBandeja && (
         <BandejaModal
-          products={activeCat.products}
+          products={caixaProducts}
+          categoryId={activeCat.id}
+          categoryName={activeCat.name}
           onClose={() => setShowBandeja(false)}
         />
       )}
