@@ -300,7 +300,6 @@ export default function CheckoutPage() {
         <div className="max-w-xl mx-auto">
           <button
             onClick={() => {
-                console.log('CHECKOUT DEBUG items:', JSON.stringify(items), 'total:', total)
                 const msg = buildWhatsAppMessage(items, total, form)
                 setOrder({ waUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, total })
               }}
