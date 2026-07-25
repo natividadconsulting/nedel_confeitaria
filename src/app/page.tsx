@@ -109,9 +109,14 @@ export default function Home() {
                         {product.description.split('\n')[0]}
                       </p>
                     )}
-                    {product.sizes && (
-                      <p className="text-xs text-stone-400 mt-1">{product.sizes.length} tamanhos disponíveis</p>
-                    )}
+                    {product.sizes && (() => {
+                      const groups = [...new Set(product.sizes!.map(s => s.group).filter(Boolean))]
+                      return (
+                        <p className="text-xs text-stone-400 mt-1">
+                          {groups.length > 0 ? groups.join(' • ') : `${product.sizes!.length} tamanhos disponíveis`}
+                        </p>
+                      )
+                    })()}
                     {product.bulkOptions && (
                       <p className="text-xs text-stone-400 mt-1">unidade · 50un · 100un</p>
                     )}
