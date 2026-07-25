@@ -2,9 +2,6 @@
 
 ## Business Info
 
-### Logo in link previews
-The Nedel logo is set as the Open Graph image (`/logo.png`) but WhatsApp and other apps may still show the old triangle or no image. Verify the og:image is rendering correctly when the link is shared, and troubleshoot if not (may need an absolute URL, larger image dimensions, or cache busting).
-
 ### Confirm PIX key
 Confirm that the PIX key `51997508060` is correct and active. It is hardcoded in `src/app/checkout/page.tsx` and shown to customers at checkout.
 
