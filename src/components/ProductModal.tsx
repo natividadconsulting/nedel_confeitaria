@@ -271,7 +271,7 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
                   >
                     <span className="text-sm font-medium text-stone-800">{o.label}</span>
                     <div className="text-right">
-                      {isSalgadoBulk && (o.quantity !== 100 || comOnlyPelotine) && (
+                      {(comOnlyPelotine || (isSalgadoBulk && o.quantity !== 100)) && (
                         <p className="text-xs text-stone-400">com pelotine</p>
                       )}
                       <span className="text-sm font-bold text-amber-700">
