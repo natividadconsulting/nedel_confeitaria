@@ -155,7 +155,7 @@ export const categories: Category[] = [
       { id: 'esp-ouro-branco', name: 'Ouro Branco', description: 'Mousse de branquinho com bombons Ouro Branco', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
       { id: 'esp-ninho-stika-morango', name: 'Ninho, Stikadinho e Morangos', description: 'Mousse de morangos, branquinho com leite Ninho e morangos', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
       { id: 'esp-ninho-nutella', name: 'Ninho com Nutella', description: 'Branquinho com leite Ninho e Nutella', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
-      { id: 'esp-ninho-stika', name: 'Ninho e Stikadinho', description: 'Branquinho e leite Ninho com mousse de morangos e Stikadinho', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
+      { id: 'esp-ninho-stika', name: 'Ninho com Stikadinho', description: 'Branquinho e leite Ninho com mousse de morangos e Stikadinho', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
       { id: 'esp-ninho-nutella-morango', name: 'Ninho, Nutella e Morangos', description: 'Branquinho com leite Ninho, Nutella e morangos', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
       { id: 'esp-stika-morango', name: 'Stikadinho com Morango', description: 'Leite Ninho com morango e Stikadinho', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
       { id: 'esp-marta-rocha', name: 'Marta Rocha com Ameixas', description: 'Nata batida com ameixa, nozes, merengue picado e ovos moles', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
