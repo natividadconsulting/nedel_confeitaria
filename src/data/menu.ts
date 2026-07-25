@@ -581,7 +581,7 @@ export const categories: Category[] = [
       },
       {
         id: 'croissant-chocolate-batom',
-        name: 'Mini Croissant de Chocolate Batom',
+        name: 'Mini Croissant de Chocolate Baton',
         type: 'bulk',
         subcategory: 'Mini Croissants',
         pelotine: 'com-only',
