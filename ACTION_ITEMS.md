@@ -1,10 +1,5 @@
 # Action Items — Nedel Confeitaria
 
-## Polish
-
-### Description Capitalization
-Normalize capitalization of all product descriptions across `src/data/menu.ts` for consistency. Currently some descriptions use sentence case, some use title case, and some mix both (e.g. "Branquinho com leite ninho" vs "Brigadeiro com chocolate"). Decide on a convention (sentence case recommended) and apply it uniformly.
-
 ## Menu Data
 
 ### Tortas Doces
