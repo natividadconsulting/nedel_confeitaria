@@ -122,7 +122,18 @@ export default function BandejaModal({ products, onClose }: Props) {
                           disabled={qty === 0}
                           className="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 hover:bg-amber-100 disabled:opacity-30 font-bold"
                         >−</button>
-                        <span className="text-sm font-semibold text-stone-800 w-6 text-center">{qty}</span>
+                        <input
+                          type="number"
+                          min={0}
+                          max={bandejaSize}
+                          value={qty === 0 ? '' : qty}
+                          onChange={e => {
+                            const val = e.target.value === '' ? 0 : parseInt(e.target.value, 10)
+                            if (!isNaN(val)) setQty(product.id, val)
+                          }}
+                          onBlur={e => { if (e.target.value === '') setQty(product.id, 0) }}
+                          className="w-10 text-sm font-semibold text-stone-800 text-center border border-stone-200 rounded-lg py-1 focus:outline-none focus:border-amber-400"
+                        />
                         <button
                           onClick={() => setQty(product.id, qty + 1)}
                           disabled={remaining === 0}
