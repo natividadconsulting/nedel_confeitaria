@@ -18,6 +18,7 @@ const TORTAS_TRADICIONAIS_RECHEIOS = [
   'Torta de Bombons — nata batida com chocolate e bombons picado',
   'Torta de Bombons com Morangos — mousse de chocolate com bombons',
   'Torta Marta Rocha — nata batida com pêssego, nozes crocante, ovos moles e merengue',
+  'Mousse de Chocolate e Morangos',
   'Branquinho e Bombons',
   'Doce de Leite com Morangos e Nata Batida com Pêssego',
   'Torta Thaisa — doce de leite com nozes crocante e mousse de branquinho com abacaxi',
@@ -28,7 +29,6 @@ const TORTAS_TRADICIONAIS_RECHEIOS = [
   'Torta Nata com Morangos',
   'Torta Brigadeiro com Morangos',
   'Torta Nata, Brigadeiro e Morangos',
-  'Mousse de Chocolate e Morangos',
   'Torta Prestígio — branquinho, brigadeiro e coco fresco',
 ]
 
