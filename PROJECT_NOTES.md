@@ -58,7 +58,7 @@ Mini Pizzas, Kibes, and Empadinhas Francesas are **com pelotine only** (`pelotin
 Sections reviewed and confirmed accurate as of 2026-07-25:
 - ✅ Kits
 - ✅ Tortas Tradicionais
-- ✅ Tortas Especiais (sabores confirmed via image scan)
+- ⬜ Tortas Especiais
 - ✅ Tortas Sobremesa
 - ✅ Torta Fria
 - ✅ Quiches
