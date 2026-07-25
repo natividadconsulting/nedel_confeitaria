@@ -1,5 +1,10 @@
 # Action Items — Nedel Confeitaria
 
+## Business Info
+
+### Confirm PIX key
+Confirm that the PIX key `51997508060` is correct and active. It is hardcoded in `src/app/checkout/page.tsx` and shown to customers at checkout.
+
 ## Menu Data
 
 ### Doces Gourmet e Doces Especiais — Bulk pricing
