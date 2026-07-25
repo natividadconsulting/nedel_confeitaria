@@ -70,6 +70,7 @@ Sections reviewed and confirmed accurate as of 2026-07-25:
 - ✅ Quiches
 - ✅ Salgados Tradicionais
 - ✅ Salgados Especiais
+- ✅ Salgados Diferenciados
 
 ## Kit Compositions
 
