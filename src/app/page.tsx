@@ -115,8 +115,11 @@ export default function Home() {
                     {product.bulkOptions && (
                       <p className="text-xs text-stone-400 mt-1">unidade · 50un · 100un</p>
                     )}
-                    {product.type === 'per-unit' && (
+                    {product.type === 'per-unit' && !product.flavors && (
                       <p className="text-xs text-stone-400 mt-1">unidade</p>
+                    )}
+                    {product.type === 'per-unit' && product.flavors && (
+                      <p className="text-xs text-stone-400 mt-1">{product.flavors.length} sabores</p>
                     )}
                     {product.fillings && product.type === 'cake' && (
                       <p className="text-xs text-stone-400 mt-1">{product.fillings.length} recheios</p>
