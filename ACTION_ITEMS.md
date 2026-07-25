@@ -13,6 +13,3 @@ Normalize capitalization of all product descriptions across `src/data/menu.ts` f
 ### Tortas Doces
 - No category exists yet for "Tortas Doces" (currently there is Tortas Tradicionais, Tortas Especiais, and Tortas Sobremesa — clarify if Tortas Doces is a separate section or an alias for one of these).
 
-### Doces Especiais — Trouxinha e Caramelados flavors
-- Currently both Trouxinha and Caramelados list `'Branquinho e Brigadeiro'` as a single flavor option (`src/data/menu.ts` lines 898 and 905). Confirm with the client: is this one combined flavor (branquinho + brigadeiro filling), or should it be split into two separate flavors — `'Branquinho'` and `'Brigadeiro'`?
-
