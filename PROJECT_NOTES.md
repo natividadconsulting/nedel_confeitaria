@@ -81,6 +81,10 @@ Confirmed with Roseli: Kit Torta 1 (50 unidades) only comes com pelotine — no 
 Confirmed with Roseli: Kit Torta 1 uses the same salgados as Kit Torta 2, but 10 of each instead of 20.
 - 10 Empadinha Folhada • 10 Cachorrinho Folhado • 10 Pastel de Calabresa • 10 Risoles de Frango • 10 Risoles de Carne
 
+## Salgados Lanche — Pricing
+
+Confirmed with Roseli: all Salgados Lanche items are R$12,00 each except Pizza Brotinho which is R$15,00.
+
 ## Pricing Confirmations
 
 ### Salgado Kit 1, Kit 2, Kit 3 — Pelotine Pricing
