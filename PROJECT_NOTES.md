@@ -45,6 +45,12 @@ Risoles de Frango, Carne, and Presunto e Queijo all use the same pricing as the 
 ### Salgados Tradicionais — Fritos Order
 Confirmed order for the bottom of Fritos: Risoles de Presunto e Queijo → Enroladinho de Salsicha → Bolinha de Queijo → Croquete de Frango com Requeijão → Croquete de Carne com Requeijão.
 
+## Salgados Diferenciados — Pelotine
+
+All items in Salgados Diferenciados (canapés, mini croissants, pastéis suíços, mini carolinas, mini quiches, and outros) are **com pelotine only** (`pelotine: 'com-only'`). This applies to all three quantity tiers (unidade, 50un, 100un) — no sem/com toggle.
+
+The R$160 price for 100 unidades is the com pelotine price.
+
 ## Salgados Especiais — Structure
 
 ### Subcategories

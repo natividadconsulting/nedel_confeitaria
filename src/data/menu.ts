@@ -527,6 +527,7 @@ export const categories: Category[] = [
         name: 'Canapé de Picles',
         type: 'bulk',
         subcategory: 'Canapés',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -534,6 +535,7 @@ export const categories: Category[] = [
         name: 'Canapé de Palmito',
         type: 'bulk',
         subcategory: 'Canapés',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -541,6 +543,7 @@ export const categories: Category[] = [
         name: 'Canapé de Cenoura',
         type: 'bulk',
         subcategory: 'Canapés',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -548,6 +551,7 @@ export const categories: Category[] = [
         name: 'Canapé de Frango',
         type: 'bulk',
         subcategory: 'Canapés',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -555,6 +559,7 @@ export const categories: Category[] = [
         name: 'Canapé de Azeitona',
         type: 'bulk',
         subcategory: 'Canapés',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       // Mini Croissants
@@ -563,6 +568,7 @@ export const categories: Category[] = [
         name: 'Mini Croissant de Queijo',
         type: 'bulk',
         subcategory: 'Mini Croissants',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -570,6 +576,7 @@ export const categories: Category[] = [
         name: 'Mini Croissant de Frango',
         type: 'bulk',
         subcategory: 'Mini Croissants',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -577,6 +584,7 @@ export const categories: Category[] = [
         name: 'Mini Croissant de Chocolate Batom',
         type: 'bulk',
         subcategory: 'Mini Croissants',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -584,6 +592,7 @@ export const categories: Category[] = [
         name: 'Mini Croissant de Presunto e Queijo',
         type: 'bulk',
         subcategory: 'Mini Croissants',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -591,6 +600,7 @@ export const categories: Category[] = [
         name: 'Mini Croissant de Goiabada',
         type: 'bulk',
         subcategory: 'Mini Croissants',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -598,6 +608,7 @@ export const categories: Category[] = [
         name: 'Mini Croissant de Goiabada com Queijo',
         type: 'bulk',
         subcategory: 'Mini Croissants',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       // Outros
@@ -606,6 +617,7 @@ export const categories: Category[] = [
         name: 'Michel Telê',
         type: 'bulk',
         subcategory: 'Especiais',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -613,6 +625,7 @@ export const categories: Category[] = [
         name: 'Barquete',
         type: 'bulk',
         subcategory: 'Especiais',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -620,6 +633,7 @@ export const categories: Category[] = [
         name: 'Pastel Suíço de Maçã',
         type: 'bulk',
         subcategory: 'Pastéis Suíços',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -627,6 +641,7 @@ export const categories: Category[] = [
         name: 'Pastel Suíço de Goiabada',
         type: 'bulk',
         subcategory: 'Pastéis Suíços',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -634,6 +649,7 @@ export const categories: Category[] = [
         name: 'Pastel Suíço de Chocolate',
         type: 'bulk',
         subcategory: 'Pastéis Suíços',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -641,6 +657,7 @@ export const categories: Category[] = [
         name: 'Mini Carolina de Frango',
         type: 'bulk',
         subcategory: 'Mini Carolinas',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -648,6 +665,7 @@ export const categories: Category[] = [
         name: 'Mini Carolina de Atum',
         type: 'bulk',
         subcategory: 'Mini Carolinas',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -655,6 +673,7 @@ export const categories: Category[] = [
         name: 'Mini Sanduíche no Palito',
         type: 'bulk',
         subcategory: 'Especiais',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -662,6 +681,7 @@ export const categories: Category[] = [
         name: 'Mini Quiche de Queijo',
         type: 'bulk',
         subcategory: 'Mini Quiches',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -669,6 +689,7 @@ export const categories: Category[] = [
         name: 'Mini Quiche de Brócolis',
         type: 'bulk',
         subcategory: 'Mini Quiches',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -676,6 +697,7 @@ export const categories: Category[] = [
         name: 'Mini Quiche de Alho Poró',
         type: 'bulk',
         subcategory: 'Mini Quiches',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -683,6 +705,7 @@ export const categories: Category[] = [
         name: 'Mini Quiche de Calabresa',
         type: 'bulk',
         subcategory: 'Mini Quiches',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
       {
@@ -690,6 +713,7 @@ export const categories: Category[] = [
         name: 'Empadinha Francesa de Frango com Legumes',
         type: 'bulk',
         subcategory: 'Especiais',
+        pelotine: 'com-only',
         bulkOptions: SALGADOS_DIF_BULK,
       },
     ],
