@@ -721,7 +721,7 @@ export const categories: Category[] = [
   {
     id: 'salgados-lanche',
     name: 'Salgados Lanche',
-    emoji: '🍔',
+    emoji: '🍱',
     description: 'Lanches e pastéis',
     products: [
       {
