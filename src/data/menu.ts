@@ -794,7 +794,7 @@ export const categories: Category[] = [
       },
       {
         id: 'brigadeiro-stikadinho',
-        name: 'Brigadeiro com Stikadinho',
+        name: 'Brigadeiro Gourmet com Stikadinho',
         type: 'per-unit',
         description: 'Brigadeiro com chocolate, granulado e pedaços de Stikadinho',
         unitPrice: 2.50,
