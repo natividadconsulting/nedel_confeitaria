@@ -11,26 +11,6 @@ const TORTAS_TRADICIONAIS_SIZES = [
   { label: 'Extra Grande', slices: 60, price: 320, group: 'Tortas Quadradas' },
 ]
 
-const TORTAS_TRADICIONAIS_SABORES = [
-  'Torta da Casa — branquinho com nozes e mousse de chocolate com bombons',
-  'Torta Delicata — ovos moles, mousse de chocolate e morangos',
-  'Torta Imperatriz — nata batida branca com abacaxi e doce de leite',
-  'Torta de Bombons — nata batida com chocolate e bombons picado',
-  'Torta de Bombons com Morangos — mousse de chocolate com bombons',
-  'Torta Marta Rocha — nata batida com pêssego, nozes crocante, ovos moles e merengue',
-  'Mousse de Chocolate e Morangos',
-  'Branquinho e Bombons',
-  'Doce de Leite com Morangos e Nata Batida com Pêssego',
-  'Torta Thaisa — doce de leite com nozes crocante e mousse de branquinho com abacaxi',
-  'Branquinho e Brigadeiro',
-  'Branquinho, Brigadeiro com Morangos',
-  'Torta de Brigadeiro',
-  'Torta de Brigadeiro com Doce de Leite',
-  'Torta Brigadeiro com Morangos',
-  'Torta Nata com Morangos',
-  'Torta Nata, Brigadeiro e Morangos',
-  'Torta Prestígio — branquinho, brigadeiro e coco fresco',
-]
 
 const TORTAS_ESPECIAIS_SIZES = [
   { label: 'Mini', slices: 10, price: 80, group: 'Tortas Redondas' },
@@ -43,16 +23,6 @@ const TORTAS_ESPECIAIS_SIZES = [
   { label: 'Extra Grande', slices: 60, price: 350, group: 'Tortas Quadradas' },
 ]
 
-const TORTAS_ESPECIAIS_SABORES = [
-  'Sedução — branquinho com nozes e mousse de chocolate com bombons e nata com morangos',
-  'Ouro Branco — mousse de branquinho com bombons ouro branco',
-  'Ninho, Stikadinho e Morangos — mousse de morangos, branquinho com leite ninho e morangos',
-  'Ninho com Nutella — branquinho com leite ninho e Nutella',
-  'Ninho e Stikadinho — branquinho e leite ninho com mousse de morangos e stikadinho',
-  'Ninho, Nutella e Morangos — branquinho com leite ninho, Nutella e morangos',
-  'Stikadinho com Morango — leite ninho com morango e stikadinho',
-  'Marta Rocha com Ameixas — nata batida com ameixa, nozes, merengue picado e ovos moles',
-]
 
 const TORTAS_SOBREMESA_SIZES = [
   { label: 'Torta Mini', slices: 10, price: 80 },
@@ -160,15 +130,26 @@ export const categories: Category[] = [
     id: 'tortas-tradicionais',
     name: 'Tortas Tradicionais',
     emoji: '🎂',
-    description: 'Sob encomenda — escolha o tamanho e recheio',
+    description: 'Sob encomenda — escolha o tamanho',
     products: [
-      {
-        id: 'torta-tradicional',
-        name: 'Torta Tradicional',
-        type: 'cake',
-        sizes: TORTAS_TRADICIONAIS_SIZES,
-        flavors: TORTAS_TRADICIONAIS_SABORES,
-      },
+      { id: 'trad-da-casa', name: 'Torta da Casa', description: 'branquinho com nozes e mousse de chocolate com bombons', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-delicata', name: 'Torta Delicata', description: 'ovos moles, mousse de chocolate e morangos', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-imperatriz', name: 'Torta Imperatriz', description: 'nata batida branca com abacaxi e doce de leite', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-bombons', name: 'Torta de Bombons', description: 'nata batida com chocolate e bombons picado', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-bombons-morango', name: 'Torta de Bombons com Morangos', description: 'mousse de chocolate com bombons', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-marta-rocha', name: 'Torta Marta Rocha', description: 'nata batida com pêssego, nozes crocante, ovos moles e merengue', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-mousse-chocolate', name: 'Mousse de Chocolate e Morangos', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-branquinho-bombons', name: 'Branquinho e Bombons', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-doce-leite-morango', name: 'Doce de Leite com Morangos e Nata Batida com Pêssego', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-thaisa', name: 'Torta Thaisa', description: 'doce de leite com nozes crocante e mousse de branquinho com abacaxi', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-branquinho-brigadeiro', name: 'Branquinho e Brigadeiro', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-branquinho-brigadeiro-morango', name: 'Branquinho, Brigadeiro com Morangos', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-brigadeiro', name: 'Torta de Brigadeiro', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-brigadeiro-doce-leite', name: 'Torta de Brigadeiro com Doce de Leite', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-brigadeiro-morango', name: 'Torta Brigadeiro com Morangos', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-nata-morango', name: 'Torta Nata com Morangos', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-nata-brigadeiro-morango', name: 'Torta Nata, Brigadeiro e Morangos', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
+      { id: 'trad-prestigio', name: 'Torta Prestígio', description: 'branquinho, brigadeiro e coco fresco', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
     ],
   },
   {
@@ -177,13 +158,14 @@ export const categories: Category[] = [
     emoji: '✨',
     description: 'Sabores especiais sob encomenda',
     products: [
-      {
-        id: 'torta-especial',
-        name: 'Torta Especial',
-        type: 'cake',
-        sizes: TORTAS_ESPECIAIS_SIZES,
-        flavors: TORTAS_ESPECIAIS_SABORES,
-      },
+      { id: 'esp-seducao', name: 'Sedução', description: 'branquinho com nozes e mousse de chocolate com bombons e nata com morangos', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
+      { id: 'esp-ouro-branco', name: 'Ouro Branco', description: 'mousse de branquinho com bombons ouro branco', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
+      { id: 'esp-ninho-stika-morango', name: 'Ninho, Stikadinho e Morangos', description: 'mousse de morangos, branquinho com leite ninho e morangos', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
+      { id: 'esp-ninho-nutella', name: 'Ninho com Nutella', description: 'branquinho com leite ninho e Nutella', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
+      { id: 'esp-ninho-stika', name: 'Ninho e Stikadinho', description: 'branquinho e leite ninho com mousse de morangos e stikadinho', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
+      { id: 'esp-ninho-nutella-morango', name: 'Ninho, Nutella e Morangos', description: 'branquinho com leite ninho, Nutella e morangos', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
+      { id: 'esp-stika-morango', name: 'Stikadinho com Morango', description: 'leite ninho com morango e stikadinho', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
+      { id: 'esp-marta-rocha', name: 'Marta Rocha com Ameixas', description: 'nata batida com ameixa, nozes, merengue picado e ovos moles', type: 'cake', sizes: TORTAS_ESPECIAIS_SIZES },
     ],
   },
   {
