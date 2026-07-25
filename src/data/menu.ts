@@ -12,7 +12,7 @@ const TORTAS_TRADICIONAIS_SIZES = [
 ]
 
 const TORTAS_TRADICIONAIS_RECHEIOS = [
-  'Torta Sedução — branquinho com nozes, mousse de chocolate, bombons e nata branca batida com morangos',
+  'Torta da Casa — branquinho com nozes e mousse de chocolate com bombons',
   'Torta Delicata — ovos moles, mousse de chocolate e morangos',
   'Torta Imperatriz — nata batida branca com abacaxi e doce de leite',
   'Torta de Bombons — nata batida com chocolate e bombons picado',
