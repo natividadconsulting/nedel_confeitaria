@@ -8,6 +8,11 @@ const geist = Geist({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Confeitaria Nedel — Faça seu Pedido",
   description: "Salgados, doces e tortas sob encomenda. Porto Alegre - RS.",
+  openGraph: {
+    title: "Confeitaria Nedel — Faça seu Pedido",
+    description: "Salgados, doces e tortas sob encomenda. Porto Alegre - RS.",
+    images: [{ url: "/logo.png" }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
