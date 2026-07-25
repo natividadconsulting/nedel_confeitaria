@@ -19,6 +19,3 @@
   - The catalog image shows "Cem unidades (com pelotine) R$160,00" — if this is the com price, the modal currently shows the wrong price for com pelotine (~R$166,50) and there should be no sem option for 100un in Salgados Diferenciados.
   - Decision needed before this can be fixed in code.
 
-## Possible Bugs / Investigations
-
-- **404 error** seen on deployed app — investigate root cause if it persists after redeployment.

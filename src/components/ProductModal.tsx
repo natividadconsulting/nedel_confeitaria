@@ -250,7 +250,7 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
             <div>
               <p className="text-sm font-semibold text-stone-700 mb-2">Pelotine (coperinha)</p>
               <div className="p-3 rounded-xl border-2 border-amber-500 bg-amber-50 text-sm font-medium text-amber-800">
-                Com Pelotine incluído
+                Este kit já vem com pelotine — única opção disponível
               </div>
             </div>
           )}
