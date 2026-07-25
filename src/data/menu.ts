@@ -1,28 +1,26 @@
 import { Category } from '@/types'
 
 const TORTAS_TRADICIONAIS_SIZES = [
-  { label: 'Mini', slices: 10, price: 65, group: 'Tortas Redondas' },
-  { label: 'Pequena', slices: 15, price: 105, group: 'Tortas Redondas' },
-  { label: 'Média', slices: 20, price: 130, group: 'Tortas Redondas' },
+  { label: 'Mini', slices: 10, price: 65, group: 'Torta Redonda' },
+  { label: 'Pequena', slices: 15, price: 105, group: 'Torta Redonda' },
+  { label: 'Média', slices: 20, price: 130, group: 'Torta Redonda' },
   { label: 'Tamanho Único', slices: 15, price: 110, group: 'Torta Retangular (Chapinha)' },
-  { label: 'Pequena', slices: 30, price: 170, group: 'Tortas Quadradas' },
-  { label: 'Média', slices: 40, price: 240, group: 'Tortas Quadradas' },
-  { label: 'Grande', slices: 50, price: 270, group: 'Tortas Quadradas' },
-  { label: 'Extra Grande', slices: 60, price: 320, group: 'Tortas Quadradas' },
+  { label: 'Pequena', slices: 30, price: 170, group: 'Torta Quadrada' },
+  { label: 'Média', slices: 40, price: 240, group: 'Torta Quadrada' },
+  { label: 'Grande', slices: 50, price: 270, group: 'Torta Quadrada' },
+  { label: 'Extra Grande', slices: 60, price: 320, group: 'Torta Quadrada' },
 ]
-
 
 const TORTAS_ESPECIAIS_SIZES = [
-  { label: 'Mini', slices: 10, price: 80, group: 'Tortas Redondas' },
-  { label: 'Pequena', slices: 15, price: 120, group: 'Tortas Redondas' },
-  { label: 'Média', slices: 20, price: 150, group: 'Tortas Redondas' },
+  { label: 'Mini', slices: 10, price: 80, group: 'Torta Redonda' },
+  { label: 'Pequena', slices: 15, price: 120, group: 'Torta Redonda' },
+  { label: 'Média', slices: 20, price: 150, group: 'Torta Redonda' },
   { label: 'Tamanho Único', slices: 15, price: 130, group: 'Torta Retangular (Chapinha)' },
-  { label: 'Pequena', slices: 30, price: 199, group: 'Tortas Quadradas' },
-  { label: 'Média', slices: 40, price: 255, group: 'Tortas Quadradas' },
-  { label: 'Grande', slices: 50, price: 299, group: 'Tortas Quadradas' },
-  { label: 'Extra Grande', slices: 60, price: 350, group: 'Tortas Quadradas' },
+  { label: 'Pequena', slices: 30, price: 199, group: 'Torta Quadrada' },
+  { label: 'Média', slices: 40, price: 255, group: 'Torta Quadrada' },
+  { label: 'Grande', slices: 50, price: 299, group: 'Torta Quadrada' },
+  { label: 'Extra Grande', slices: 60, price: 350, group: 'Torta Quadrada' },
 ]
-
 
 const TORTAS_SOBREMESA_SIZES = [
   { label: 'Torta Mini', slices: 10, price: 80 },
@@ -130,7 +128,7 @@ export const categories: Category[] = [
     id: 'tortas-tradicionais',
     name: 'Tortas Tradicionais',
     emoji: '🎂',
-    description: 'Sob encomenda — escolha o tamanho',
+    description: 'Sob encomenda — escolha o sabor e tamanho',
     products: [
       { id: 'trad-da-casa', name: 'Torta da Casa', description: 'branquinho com nozes e mousse de chocolate com bombons', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
       { id: 'trad-delicata', name: 'Torta Delicata', description: 'ovos moles, mousse de chocolate e morangos', type: 'cake', sizes: TORTAS_TRADICIONAIS_SIZES },
@@ -174,7 +172,7 @@ export const categories: Category[] = [
     emoji: '🍰',
     description: 'Sobremesas especiais sob encomenda',
     products: [
-      { id: 'sobremesa-cheesecake', name: 'Cheesecake 4 Sabores', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
+      { id: 'sobremesa-cheesecake', name: 'Cheesecake', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES, flavors: ['Ninho', 'Nutella', 'Doce de Leite'] },
       { id: 'sobremesa-pudim', name: 'Pudim Inteiro', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
       { id: 'sobremesa-quindao', name: 'Quindão Inteiro', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
       { id: 'sobremesa-banoffe', name: 'Banoffe', type: 'cake', sizes: TORTAS_SOBREMESA_SIZES },
