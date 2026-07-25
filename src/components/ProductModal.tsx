@@ -41,12 +41,15 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
   function getUnitPrice() {
     if (product.type === 'cake') return selectedSize?.price ?? 0
     if (product.type === 'bulk') {
-      const base = selectedBulk?.price ?? 0
-      return showPelotine && withPelotine ? roundUp25(base * 1.04) : base
+      const opt = selectedBulk
+      if (!opt) return 0
+      if (showPelotine && withPelotine) return opt.priceWithPelotine ?? roundUp25(opt.price * 1.04)
+      return opt.price
     }
     if (product.type === 'per-unit') return product.unitPrice ?? 0
     const base = product.price ?? 0
-    return showPelotine && withPelotine ? roundUp25(base * 1.04) : base
+    if (showPelotine && withPelotine) return product.priceWithPelotine ?? roundUp25(base * 1.04)
+    return base
   }
 
   function getItemTotal() {
@@ -64,7 +67,8 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
 
     let name = product.name
     if (product.type === 'kit-with-cake') {
-      name = `${product.name} (recheio: ${filling})`
+      const pelotineLabel = product.pelotine === 'sem-com' ? ` • ${withPelotine ? 'com' : 'sem'} pelotine` : ''
+      name = `${product.name} (recheio: ${filling}${pelotineLabel})`
     } else if (product.pelotine === 'sem-com') {
       name = `${product.name} (${withPelotine ? 'com' : 'sem'} pelotine)`
     }
@@ -236,7 +240,7 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
                         <p className="text-xs text-stone-400">com pelotine</p>
                       )}
                       <span className="text-sm font-bold text-amber-700">
-                        {formatPrice(isSalgadoBulk && o.quantity === 100 && withPelotine ? roundUp25(o.price * 1.04) : o.price)}
+                        {formatPrice(isSalgadoBulk && o.quantity === 100 && withPelotine ? (o.priceWithPelotine ?? roundUp25(o.price * 1.04)) : o.price)}
                       </span>
                     </div>
                   </button>

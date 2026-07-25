@@ -16,6 +16,7 @@ export interface BulkOption {
   label: string
   quantity: number
   price: number
+  priceWithPelotine?: number
 }
 
 export interface Product {
@@ -33,6 +34,7 @@ export interface Product {
   unitPrice?: number
   items?: string[]
   pelotine?: 'sem-com' | 'com-only'
+  priceWithPelotine?: number
 }
 
 export interface Category {

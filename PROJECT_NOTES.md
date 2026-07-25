@@ -2,6 +2,9 @@
 
 ## Kit Compositions
 
+### Kit Torta 1 & 2 — Pelotine
+Confirmed with Roseli: Kit Torta 1 (50 unidades) only comes com pelotine — no sem option. Kit Torta 2 (100 unidades) offers the choice. Rule: whenever a kit has 100 units, the customer can pick sem or com pelotine.
+
 ### Kit Torta 1 — Salgado Breakdown
 Confirmed with Roseli: Kit Torta 1 uses the same salgados as Kit Torta 2, but 10 of each instead of 20.
 - 10 Empadinha Folhada • 10 Cachorrinho Folhado • 10 Pastel de Calabresa • 10 Risoles de Frango • 10 Risoles de Carne
