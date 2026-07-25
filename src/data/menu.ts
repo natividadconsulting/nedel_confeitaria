@@ -916,7 +916,7 @@ export const categories: Category[] = [
         name: 'Mini Trufas',
         type: 'per-unit',
         unitPrice: 3,
-        flavors: ['Coco', 'Nozes', 'Brigadeiro', 'Branquinho e Morangos', 'Brigadeiro e Morangos', 'Ameixa', 'Damasco', 'Brigadeiro com Stikadinho e Ninho com Nutella'],
+        flavors: ['Coco', 'Nozes', 'Brigadeiro', 'Branquinho e Morangos', 'Brigadeiro e Morangos', 'Ameixa', 'Damasco', 'Brigadeiro com Stikadinho', 'Ninho com Nutella'],
       },
       {
         id: 'mini-brownie',
