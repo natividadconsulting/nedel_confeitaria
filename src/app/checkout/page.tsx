@@ -89,9 +89,9 @@ export default function CheckoutPage() {
     notes: '',
     preferredTime: '',
   })
-  const [submitted, setSubmitted] = useState(false)
+  const [snapshot, setSnapshot] = useState<{ items: typeof items; total: number } | null>(null)
 
-  if (items.length === 0 && !submitted) {
+  if (items.length === 0 && !snapshot) {
     return (
       <div className="min-h-screen bg-[#FDF8F0] flex flex-col items-center justify-center p-8 text-center">
         <span className="text-6xl mb-4">🛒</span>
@@ -104,8 +104,8 @@ export default function CheckoutPage() {
     )
   }
 
-  if (submitted) {
-    const msg = buildWhatsAppMessage(items, total, form)
+  if (snapshot) {
+    const msg = buildWhatsAppMessage(snapshot.items, snapshot.total, form)
     const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`
 
     return (
@@ -134,7 +134,7 @@ export default function CheckoutPage() {
           </a>
 
           <p className="text-xs text-stone-400 mt-4">
-            Total: <strong className="text-stone-600">{formatPrice(total)}</strong>
+            Total: <strong className="text-stone-600">{formatPrice(snapshot.total)}</strong>
             {form.paymentMethod === 'pix' && <> · Chave PIX: <strong>{PIX_KEY}</strong></>}
           </p>
         </div>
@@ -301,7 +301,7 @@ export default function CheckoutPage() {
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#FDF8F0] border-t border-amber-100">
         <div className="max-w-xl mx-auto">
           <button
-            onClick={() => setSubmitted(true)}
+            onClick={() => setSnapshot({ items: [...items], total })}
             disabled={!isValid}
             className="w-full bg-amber-600 hover:bg-amber-700 disabled:bg-stone-300 disabled:cursor-not-allowed text-white font-bold py-4 rounded-2xl text-base transition-colors flex items-center justify-between px-5"
           >
