@@ -271,7 +271,7 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
                   >
                     <span className="text-sm font-medium text-stone-800">{o.label}</span>
                     <div className="text-right">
-                      {isSalgadoBulk && o.quantity !== 100 && (
+                      {isSalgadoBulk && (o.quantity !== 100 || comOnlyPelotine) && (
                         <p className="text-xs text-stone-400">com pelotine</p>
                       )}
                       <span className="text-sm font-bold text-amber-700">
@@ -284,15 +284,6 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
             </div>
           )}
 
-          {/* Pelotine — com only (no choice) */}
-          {comOnlyPelotine && (
-            <div>
-              <p className="text-sm font-semibold text-stone-700 mb-2">Pelotine (coperinha)</p>
-              <div className="p-3 rounded-xl border-2 border-amber-500 bg-amber-50 text-sm font-medium text-amber-800">
-                Este kit já vem com pelotine — única opção disponível
-              </div>
-            </div>
-          )}
 
           {/* Pelotine toggle */}
           {showPelotine && (
