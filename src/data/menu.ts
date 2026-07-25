@@ -283,8 +283,8 @@ export const categories: Category[] = [
         bulkOptions: SALGADOS_TRAD_BULK,
       },
       {
-        id: 'cachorrinho-meta',
-        name: 'Cachorrinho de Meta',
+        id: 'cachorrinho-nata',
+        name: 'Cachorrinho de Nata',
         type: 'bulk',
         subcategory: 'Assados',
         bulkOptions: SALGADOS_TRAD_BULK,
