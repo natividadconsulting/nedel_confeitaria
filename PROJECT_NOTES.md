@@ -71,6 +71,7 @@ Sections reviewed and confirmed accurate as of 2026-07-25:
 - ✅ Salgados Tradicionais
 - ✅ Salgados Especiais
 - ✅ Salgados Diferenciados
+- ✅ Salgados Lanche
 
 ## Kit Compositions
 
