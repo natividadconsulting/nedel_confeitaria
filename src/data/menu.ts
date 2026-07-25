@@ -33,14 +33,14 @@ const TORTAS_TRADICIONAIS_SABORES = [
 ]
 
 const TORTAS_ESPECIAIS_SIZES = [
-  { label: 'Torta Mini', slices: 10, price: 80 },
-  { label: 'Pequena', slices: 15, price: 120 },
-  { label: 'Chapinha', slices: 15, price: 130 },
-  { label: 'Média', slices: 20, price: 150 },
-  { label: 'Colchão 30 fatias', slices: 30, price: 199 },
-  { label: 'Colchão 40 fatias', slices: 40, price: 255 },
-  { label: 'Colchão 50 fatias', slices: 50, price: 299 },
-  { label: 'Colchão 60 fatias', slices: 60, price: 350 },
+  { label: 'Mini', slices: 10, price: 80, group: 'Tortas Redondas' },
+  { label: 'Pequena', slices: 15, price: 120, group: 'Tortas Redondas' },
+  { label: 'Média', slices: 20, price: 150, group: 'Tortas Redondas' },
+  { label: 'Tamanho Único', slices: 15, price: 130, group: 'Torta Retangular (Chapinha)' },
+  { label: 'Pequena', slices: 30, price: 199, group: 'Tortas Quadradas' },
+  { label: 'Média', slices: 40, price: 255, group: 'Tortas Quadradas' },
+  { label: 'Grande', slices: 50, price: 299, group: 'Tortas Quadradas' },
+  { label: 'Extra Grande', slices: 60, price: 350, group: 'Tortas Quadradas' },
 ]
 
 const TORTAS_ESPECIAIS_SABORES = [
