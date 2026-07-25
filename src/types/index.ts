@@ -10,6 +10,7 @@ export interface SizeOption {
   label: string
   slices: number
   price: number
+  group?: string
 }
 
 export interface BulkOption {

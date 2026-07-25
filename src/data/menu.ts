@@ -1,14 +1,14 @@
 import { Category } from '@/types'
 
 const TORTAS_TRADICIONAIS_SIZES = [
-  { label: 'Torta Mini', slices: 10, price: 65 },
-  { label: 'Pequena', slices: 15, price: 105 },
-  { label: 'Chapinha', slices: 15, price: 110 },
-  { label: 'Média', slices: 20, price: 130 },
-  { label: 'Colchão 30 fatias', slices: 30, price: 170 },
-  { label: 'Colchão 40 fatias', slices: 40, price: 240 },
-  { label: 'Colchão 50 fatias', slices: 50, price: 270 },
-  { label: 'Colchão 60 fatias', slices: 60, price: 320 },
+  { label: 'Mini', slices: 10, price: 65, group: 'Tortas Redondas' },
+  { label: 'Pequena', slices: 15, price: 105, group: 'Tortas Redondas' },
+  { label: 'Média', slices: 20, price: 130, group: 'Tortas Redondas' },
+  { label: 'Tamanho Único', slices: 15, price: 110, group: 'Torta Retangular (Chapinha)' },
+  { label: 'Pequena', slices: 30, price: 170, group: 'Tortas Quadradas' },
+  { label: 'Média', slices: 40, price: 240, group: 'Tortas Quadradas' },
+  { label: 'Grande', slices: 50, price: 270, group: 'Tortas Quadradas' },
+  { label: 'Extra Grande', slices: 60, price: 320, group: 'Tortas Quadradas' },
 ]
 
 const TORTAS_TRADICIONAIS_RECHEIOS = [

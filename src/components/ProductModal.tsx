@@ -130,28 +130,63 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
           )}
 
           {/* Cake: size picker */}
-          {product.type === 'cake' && product.sizes && (
-            <div>
-              <p className="text-sm font-semibold text-stone-700 mb-2">Tamanho</p>
-              <div className="grid grid-cols-2 gap-2">
-                {product.sizes.map(s => (
-                  <button
-                    key={s.label}
-                    onClick={() => setSelectedSize(s)}
-                    className={`p-3 rounded-xl border-2 text-left transition-all ${
-                      selectedSize?.label === s.label
-                        ? 'border-amber-500 bg-amber-50'
-                        : 'border-stone-200 hover:border-stone-300'
-                    }`}
-                  >
-                    <p className="text-sm font-medium text-stone-800">{s.label}</p>
-                    <p className="text-xs text-stone-500">{s.slices} fatias</p>
-                    <p className="text-sm font-bold text-amber-700 mt-1">{formatPrice(s.price)}</p>
-                  </button>
+          {product.type === 'cake' && product.sizes && (() => {
+            const hasGroups = product.sizes.some(s => s.group)
+            if (!hasGroups) return (
+              <div>
+                <p className="text-sm font-semibold text-stone-700 mb-2">Tamanho</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {product.sizes.map(s => (
+                    <button
+                      key={s.label}
+                      onClick={() => setSelectedSize(s)}
+                      className={`p-3 rounded-xl border-2 text-left transition-all ${
+                        selectedSize?.label === s.label
+                          ? 'border-amber-500 bg-amber-50'
+                          : 'border-stone-200 hover:border-stone-300'
+                      }`}
+                    >
+                      <p className="text-sm font-medium text-stone-800">{s.label}</p>
+                      <p className="text-xs text-stone-500">{s.slices} fatias</p>
+                      <p className="text-sm font-bold text-amber-700 mt-1">{formatPrice(s.price)}</p>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )
+            const groups = product.sizes.reduce<Record<string, typeof product.sizes>>((acc, s) => {
+              const g = s.group ?? ''
+              acc[g] = [...(acc[g] ?? []), s]
+              return acc
+            }, {})
+            return (
+              <div className="space-y-3">
+                <p className="text-sm font-semibold text-stone-700">Tamanho</p>
+                {Object.entries(groups).map(([group, sizes]) => (
+                  <div key={group}>
+                    <p className="text-xs font-semibold text-stone-500 uppercase tracking-wide mb-1.5">{group}</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {sizes.map(s => (
+                        <button
+                          key={`${group}-${s.label}`}
+                          onClick={() => setSelectedSize(s)}
+                          className={`p-3 rounded-xl border-2 text-left transition-all ${
+                            selectedSize?.label === s.label && selectedSize?.group === s.group
+                              ? 'border-amber-500 bg-amber-50'
+                              : 'border-stone-200 hover:border-stone-300'
+                          }`}
+                        >
+                          <p className="text-sm font-medium text-stone-800">{s.label}</p>
+                          <p className="text-xs text-stone-500">{s.slices} fatias</p>
+                          <p className="text-sm font-bold text-amber-700 mt-1">{formatPrice(s.price)}</p>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
-            </div>
-          )}
+            )
+          })()}
 
           {/* Cake: filling picker */}
           {(product.type === 'cake' || product.type === 'kit-with-cake') && product.fillings && (
