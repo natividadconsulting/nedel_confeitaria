@@ -34,7 +34,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const addItem = useCallback((item: Omit<CartItem, 'cartId'>) => {
     const cartId = `${item.productId}-${Date.now()}-${Math.random()}`
     setItems(prev => [...prev, { ...item, cartId }])
-    setIsOpen(true)
   }, [])
 
   const removeItem = useCallback((cartId: string) => {
