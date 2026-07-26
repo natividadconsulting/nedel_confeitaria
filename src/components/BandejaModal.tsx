@@ -15,10 +15,15 @@ interface Props {
   onClose: () => void
 }
 
+function roundUp25(n: number) {
+  return Math.ceil(n * 4) / 4
+}
+
 export default function BandejaModal({ products, categoryId, categoryName, onClose }: Props) {
   const { addItem } = useCart()
   const [bandejaSize, setBandejaSize] = useState<50 | 100>(100)
   const [quantities, setQuantities] = useState<Record<string, number>>({})
+  const [withPelotine, setWithPelotine] = useState(false)
 
   const tiers = useMemo(() => {
     const opts = products[0]?.bulkOptions ?? []
@@ -29,7 +34,11 @@ export default function BandejaModal({ products, categoryId, categoryName, onClo
 
   const total = Object.values(quantities).reduce((s, q) => s + q, 0)
   const remaining = bandejaSize - total
-  const tierPrice = tiers[bandejaSize]
+
+  const showPelotine = categoryId === 'salgados-tradicionais' && bandejaSize === 100
+  const tierPrice = showPelotine && withPelotine
+    ? roundUp25(tiers[100] * 1.04)
+    : tiers[bandejaSize]
 
   const grouped = products.reduce<Record<string, Product[]>>((acc, p) => {
     const key = p.subcategory ?? ''
@@ -49,13 +58,14 @@ export default function BandejaModal({ products, categoryId, categoryName, onClo
     const breakdown = products
       .filter(p => (quantities[p.id] ?? 0) > 0)
       .map(p => ({ name: p.name, quantity: quantities[p.id] }))
+    const pelotineLabel = showPelotine ? ` • ${withPelotine ? 'com' : 'sem'} pelotine` : ''
     addItem({
       productId: `caixa-${categoryId}`,
       categoryId,
       name: `Caixa de ${categoryName}`,
       quantity: 1,
       unitPrice: tierPrice,
-      bulkLabel: `${bandejaSize} unidades`,
+      bulkLabel: `${bandejaSize} unidades${pelotineLabel}`,
       breakdown,
     })
     onClose()
@@ -81,7 +91,7 @@ export default function BandejaModal({ products, categoryId, categoryName, onClo
               {([50, 100] as const).map(size => (
                 <button
                   key={size}
-                  onClick={() => { setBandejaSize(size); setQuantities({}) }}
+                  onClick={() => { setBandejaSize(size); setQuantities({}); setWithPelotine(false) }}
                   className={`p-3 rounded-xl border-2 text-left transition-all ${
                     bandejaSize === size ? 'border-amber-500 bg-amber-50' : 'border-stone-200 hover:border-stone-300'
                   }`}
@@ -105,6 +115,35 @@ export default function BandejaModal({ products, categoryId, categoryName, onClo
               {total}/{bandejaSize}
             </span>
           </div>
+
+          {/* Pelotine toggle (salgados-tradicionais, 100 units only) */}
+          {showPelotine && (
+            <div>
+              <p className="text-sm font-semibold text-stone-700 mb-2">Pelotine</p>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => setWithPelotine(false)}
+                  className={`p-3 rounded-xl border-2 text-sm font-medium transition-all ${
+                    !withPelotine
+                      ? 'border-amber-500 bg-amber-50 text-amber-800'
+                      : 'border-stone-200 text-stone-600 hover:border-stone-300'
+                  }`}
+                >
+                  Sem Pelotine
+                </button>
+                <button
+                  onClick={() => setWithPelotine(true)}
+                  className={`p-3 rounded-xl border-2 text-sm font-medium transition-all ${
+                    withPelotine
+                      ? 'border-amber-500 bg-amber-50 text-amber-800'
+                      : 'border-stone-200 text-stone-600 hover:border-stone-300'
+                  }`}
+                >
+                  Com Pelotine <span className="text-xs font-normal">({formatPrice(roundUp25(tiers[100] * 1.04))})</span>
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Items by subcategory */}
           {Object.entries(grouped).map(([subcat, prods]) => (
