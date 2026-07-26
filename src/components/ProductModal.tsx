@@ -59,7 +59,9 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
   function handleAdd() {
     const filling = selectedFilling ?? undefined
     const flavor = selectedFlavor ?? undefined
-    const size = selectedSize?.label ?? undefined
+    const size = selectedSize
+      ? (selectedSize.group ? `${selectedSize.group} · ${selectedSize.label}` : selectedSize.label)
+      : undefined
     const rawBulkLabel = selectedBulk?.label ?? undefined
     const bulkLabel = rawBulkLabel && showPelotine
       ? `${rawBulkLabel} • ${withPelotine ? 'com' : 'sem'} pelotine`
