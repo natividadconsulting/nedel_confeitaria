@@ -1034,6 +1034,13 @@ export const categories: Category[] = [
         price: 29.90,
         priceNote: '10 fatias',
       },
+      {
+        id: 'bolo-limao',
+        name: 'Bolo de Limão',
+        type: 'simple',
+        price: 29.90,
+        priceNote: '10 fatias',
+      },
     ],
   },
 ]
