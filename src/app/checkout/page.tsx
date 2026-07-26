@@ -221,7 +221,7 @@ export default function CheckoutPage() {
 
           <div>
             <label className="text-sm font-medium text-stone-600 block mb-1">Data e horário preferidos</label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="flex flex-col gap-2">
               <input
                 type="date"
                 value={form.preferredDate}
