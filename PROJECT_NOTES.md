@@ -179,6 +179,8 @@ Fields collected at checkout:
 **Deploy:** Push to `main` → Vercel auto-builds. No CLI needed.  
 **Vercel CLI:** Not installed locally. Use MCP tools (`mcp__vercel__*`) for deployment inspection.
 
+**Vercel Analytics:** Enabled. `@vercel/analytics` installed, `<Analytics />` added to `layout.tsx`. Data appears in the Vercel dashboard → Analytics tab.
+
 **Vercel Hobby Plan note:** All pages are fully static (no serverless functions). The only limit at risk is 100 GB bandwidth/month. When product photos are added: compress to <100 KB each, consider Cloudflare CDN to avoid hitting bandwidth cap.
 
 ---
@@ -213,8 +215,14 @@ All Risoles use standard Salgados Tradicionais pricing (R$1,35/un · R$67,50/50u
 ### Salgados Tradicionais — Fritos Order
 Confirmed order: Risoles de Presunto e Queijo → Enroladinho de Salsicha → Bolinha de Queijo → Croquete de Frango com Requeijão → Croquete de Carne com Requeijão.
 
+### Bolos category order
+Bolos Tradicionais appears before Bolos Caseiros Especiais in the category tabs (ascending price: R$29,90 → R$34,90).
+
+### Bolos Tradicionais
+Seven items: Cenoura, Chocolate, Milho com Goiabada, Português de Creme, Português de Nozes, Laranja, Limão. All R$29,90 / 10 fatias. Bolo de Limão confirmed by Thaisa (2026-07-26).
+
 ### Bolos Caseiros Especiais
-All four bolos (Ninho, Oreo, Paçoquinha, Churros) confirmed at R$34,90 / 10 fatias.
+Four items: Ninho, Oreo, Paçoquinha, Churros. All R$34,90 / 10 fatias.
 
 ### Doces — No bulk pricing
 Doces Gourmet and Doces Especiais do not have 50un/100un bulk pricing. They are sold per unit only.
@@ -250,8 +258,8 @@ Fillings: Branquinho e Brigadeiro, Marta Rocha.
 | Doces Especiais (panelinhas, trufas, etc.) | R$3,00/un |
 | Mini Cupcake | R$4,50/un |
 | Mini Quindim | R$2,00/un |
-| Bolos Caseiros Especiais | R$34,90 / 10 fatias |
-| Bolos Tradicionais | R$29,90 / 10 fatias |
+| Bolos Tradicionais (all 7) | R$29,90 / 10 fatias |
+| Bolos Caseiros Especiais (all 4) | R$34,90 / 10 fatias |
 | Quiches | R$70,00 / 15 fatias |
 | Torta Fria (all flavors) | R$85,00/un |
 
