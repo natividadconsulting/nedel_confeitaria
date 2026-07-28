@@ -71,6 +71,10 @@ function buildWhatsAppMessage(items: ReturnType<typeof useCart>['items'], total:
 
   lines.push(`*TOTAL: ${formatPrice(total)}*`)
 
+  if (data.deliveryType === 'entrega') {
+    lines.push('🚚 *Taxa de entrega:* a combinar')
+  }
+
   if (data.paymentMethod === 'pix') {
     lines.push('', `_Chave PIX: ${PIX_KEY}_`)
     lines.push('_Favor enviar comprovante após o pagamento._')
@@ -267,6 +271,7 @@ export default function CheckoutPage() {
                 rows={2}
                 className="w-full border-2 border-stone-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-amber-400 resize-none"
               />
+              <p className="text-xs text-stone-500 mt-1">A taxa de entrega será informada pela loja pelo WhatsApp após o recebimento do pedido.</p>
             </div>
           )}
         </div>
