@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useCart } from '@/context/CartContext'
 import { CheckoutData } from '@/types'
@@ -88,8 +88,10 @@ function buildWhatsAppMessage(items: ReturnType<typeof useCart>['items'], total:
 }
 
 export default function CheckoutPage() {
-  const { items, total, clearCart } = useCart()
+  const { items, total, clearCart, setIsOpen } = useCart()
   const router = useRouter()
+
+  useEffect(() => { setIsOpen(false) }, [])
 
   const [form, setForm] = useState<CheckoutData>({
     name: '',

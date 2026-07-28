@@ -85,7 +85,7 @@ export default function CartSidebar() {
             <span className="text-xl font-bold text-amber-800">{formatPrice(total)}</span>
           </div>
           <button
-            onClick={() => { setIsOpen(false); router.push('/checkout') }}
+            onClick={() => router.push('/checkout')}
             disabled={items.length === 0}
             className="w-full bg-amber-600 hover:bg-amber-700 disabled:bg-stone-300 text-white font-semibold py-4 rounded-xl transition-colors"
           >
