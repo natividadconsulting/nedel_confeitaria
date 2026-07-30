@@ -332,17 +332,10 @@ export default function CheckoutPage() {
           )}
 
           {form.paymentMethod === 'pix' && (
-            <>
-              <div className="bg-green-50 border border-green-200 rounded-xl p-3 text-sm text-green-800">
-                <p className="font-semibold mb-1">Chave PIX (Telefone)</p>
-                <p className="font-mono text-lg font-bold tracking-wide">{PIX_KEY}</p>
-                <p className="text-xs text-green-600 mt-1">Envie o comprovante junto com seu pedido no WhatsApp.</p>
-              </div>
-              <div className="bg-red-50 border border-red-300 rounded-xl p-3 text-sm">
-                <p className="font-bold text-red-700">⚠️ Confirme o pedido antes de pagar!</p>
-                <p className="text-xs text-red-600 mt-0.5">Clique em <strong>Confirmar Pedido</strong> abaixo. A chave PIX e as instruções de envio aparecem na próxima tela.</p>
-              </div>
-            </>
+            <div className="bg-red-50 border border-red-300 rounded-xl p-3 text-sm">
+              <p className="font-bold text-red-700">⚠️ Confirme o pedido antes de pagar!</p>
+              <p className="text-xs text-red-600 mt-0.5">Clique em <strong>Confirmar Pedido</strong> abaixo. A chave PIX e as instruções de pagamento aparecem na próxima tela.</p>
+            </div>
           )}
         </div>
 
