@@ -306,7 +306,7 @@ export default function CheckoutPage() {
           <h2 className="font-semibold text-stone-800">Forma de Pagamento</h2>
           <div className="space-y-2">
             {[
-              { value: 'pix', label: '💸 PIX (pagar agora)', desc: `Chave PIX: ${PIX_KEY}` },
+              { value: 'pix', label: '💸 PIX (pagar agora)', desc: 'Pague via transferência PIX' },
               { value: 'cartao-retirada', label: '💳 Cartão na Retirada', desc: 'Pague ao buscar o pedido' },
               { value: 'cartao-entrega', label: '💳 Cartão na Entrega', desc: 'Pague ao receber em casa' },
             ].map(opt => (
@@ -325,18 +325,9 @@ export default function CheckoutPage() {
             ))}
           </div>
 
-          {(form.paymentMethod === 'cartao-retirada' || form.paymentMethod === 'cartao-entrega') && (
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-sm text-amber-800">
-              <p className="text-xs">Na próxima tela, envie seu pedido pelo WhatsApp — não feche o app antes disso ou o pedido não chega à loja.</p>
-            </div>
-          )}
-
-          {form.paymentMethod === 'pix' && (
-            <div className="bg-red-50 border border-red-300 rounded-xl p-3 text-sm">
-              <p className="font-bold text-red-700">⚠️ Confirme o pedido antes de pagar!</p>
-              <p className="text-xs text-red-600 mt-0.5">Clique em <strong>Confirmar Pedido</strong> abaixo. A chave PIX e as instruções de pagamento aparecem na próxima tela.</p>
-            </div>
-          )}
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-sm text-amber-800">
+            <p className="text-xs">Na próxima tela, envie seu pedido pelo WhatsApp — não feche o app antes disso ou o pedido não chega à loja.</p>
+          </div>
         </div>
 
         {/* Notes */}
