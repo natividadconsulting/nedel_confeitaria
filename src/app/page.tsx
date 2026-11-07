@@ -73,7 +73,12 @@ export default function Home() {
             {categories.map(cat => (
               <button
                 key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
+                onClick={e => {
+                  setActiveCategory(cat.id)
+                  // Show the new list from its start, and bring the chosen tab fully into view
+                  e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
                 className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                   activeCategory === cat.id
                     ? 'bg-amber-600 text-white shadow-sm'

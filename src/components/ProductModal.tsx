@@ -25,7 +25,14 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
   const [selectedFilling, setSelectedFilling] = useState(product.fillings?.[0] ?? null)
   const [selectedFlavor, setSelectedFlavor] = useState(product.flavors?.[0] ?? null)
   const [selectedBulk, setSelectedBulk] = useState(product.bulkOptions?.[0] ?? null)
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantityRaw] = useState(1)
+  const [qtyText, setQtyText] = useState('1')
+  // Quantity can be typed (e.g. 50 brigadeiros) or stepped with − / +
+  const setQuantity = (next: number | ((q: number) => number)) => {
+    const v = Math.max(1, typeof next === 'function' ? next(quantity) : next)
+    setQuantityRaw(v)
+    setQtyText(String(v))
+  }
   const [notes, setNotes] = useState('')
   const [withPelotine, setWithPelotine] = useState(false)
 
@@ -38,17 +45,17 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
     return () => { document.body.style.overflow = '' }
   }, [])
 
-  function getUnitPrice() {
+  function getUnitPrice(pel: boolean = withPelotine) {
     if (product.type === 'cake') return selectedSize?.price ?? 0
     if (product.type === 'bulk') {
       const opt = selectedBulk
       if (!opt) return 0
-      if (showPelotine && withPelotine) return opt.priceWithPelotine ?? roundUp25(opt.price * 1.04)
+      if (showPelotine && pel) return opt.priceWithPelotine ?? roundUp25(opt.price * 1.04)
       return opt.price
     }
     if (product.type === 'per-unit') return product.unitPrice ?? 0
     const base = product.price ?? 0
-    if (showPelotine && withPelotine) return product.priceWithPelotine ?? roundUp25(base * 1.04)
+    if (showPelotine && pel) return product.priceWithPelotine ?? roundUp25(base * 1.04)
     return base
   }
 
@@ -311,6 +318,7 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
                   }`}
                 >
                   Com Pelotine
+                  <span className="block text-xs font-normal mt-0.5">+{formatPrice(getUnitPrice(true) - getUnitPrice(false))}</span>
                 </button>
               </div>
             </div>
@@ -341,7 +349,20 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
                   onClick={() => setQuantity(q => Math.max(1, q - 1))}
                   className="w-10 h-10 rounded-full border-2 border-stone-200 flex items-center justify-center text-stone-600 hover:border-amber-400 hover:bg-amber-50 text-xl"
                 >−</button>
-                <span className="text-xl font-semibold text-stone-800 w-8 text-center">{quantity}</span>
+                <input
+                  type="number"
+                  inputMode="numeric"
+                  min={1}
+                  aria-label="Quantidade"
+                  value={qtyText}
+                  onChange={e => {
+                    const v = e.target.value.replace(/\D/g, '')
+                    setQtyText(v)
+                    if (v !== '' && Number(v) >= 1) setQuantity(Number(v))
+                  }}
+                  onBlur={() => setQtyText(String(quantity))}
+                  className="w-16 text-xl font-semibold text-stone-800 text-center border-2 border-stone-200 rounded-xl py-1 focus:outline-none focus:border-amber-400"
+                />
                 <button
                   onClick={() => setQuantity(q => q + 1)}
                   className="w-10 h-10 rounded-full border-2 border-stone-200 flex items-center justify-center text-stone-600 hover:border-amber-400 hover:bg-amber-50 text-xl"
@@ -360,7 +381,20 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
                   onClick={() => setQuantity(q => Math.max(1, q - 1))}
                   className="w-10 h-10 rounded-full border-2 border-stone-200 flex items-center justify-center text-stone-600 hover:border-amber-400 hover:bg-amber-50 text-xl"
                 >−</button>
-                <span className="text-xl font-semibold text-stone-800 w-8 text-center">{quantity}</span>
+                <input
+                  type="number"
+                  inputMode="numeric"
+                  min={1}
+                  aria-label="Quantidade"
+                  value={qtyText}
+                  onChange={e => {
+                    const v = e.target.value.replace(/\D/g, '')
+                    setQtyText(v)
+                    if (v !== '' && Number(v) >= 1) setQuantity(Number(v))
+                  }}
+                  onBlur={() => setQtyText(String(quantity))}
+                  className="w-16 text-xl font-semibold text-stone-800 text-center border-2 border-stone-200 rounded-xl py-1 focus:outline-none focus:border-amber-400"
+                />
                 <button
                   onClick={() => setQuantity(q => q + 1)}
                   className="w-10 h-10 rounded-full border-2 border-stone-200 flex items-center justify-center text-stone-600 hover:border-amber-400 hover:bg-amber-50 text-xl"
@@ -372,21 +406,20 @@ export default function ProductModal({ product, categoryId, categoryName, onClos
           {/* Notes */}
           <div>
             <p className="text-sm font-semibold text-stone-700 mb-2">
-              {product.type === 'bulk' && selectedBulk && selectedBulk.quantity > 1
-                ? 'Composição do lote (opcional)'
-                : 'Observações (opcional)'}
+              Observações (opcional)
             </p>
             <textarea
               value={notes}
               onChange={e => setNotes(e.target.value)}
-              placeholder={
-                product.type === 'bulk' && selectedBulk && selectedBulk.quantity > 1
-                  ? `Ex: 40 coxinha, 10 risoles de frango...`
-                  : 'Ex: sem glúten, alergia a nozes...'
-              }
+              placeholder="Ex: sem glúten, alergia a nozes..."
               rows={2}
               className="w-full rounded-xl border-2 border-stone-200 p-3 text-sm text-stone-700 focus:outline-none focus:border-amber-400 resize-none"
             />
+            {product.type === 'bulk' && selectedBulk && selectedBulk.quantity > 1 && (
+              <p className="text-xs text-stone-500 mt-1">
+                {selectedBulk.quantity} unidades de {product.name}. Quer misturar sabores? Feche e use <strong>Montar Sua Caixa</strong> no topo da lista.
+              </p>
+            )}
           </div>
         </div>
 

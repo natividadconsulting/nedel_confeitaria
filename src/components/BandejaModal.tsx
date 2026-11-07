@@ -109,7 +109,7 @@ export default function BandejaModal({ products, categoryId, categoryName, onClo
             remaining === 0 ? 'bg-green-50 border border-green-200' : 'bg-amber-50 border border-amber-100'
           }`}>
             <span className="text-sm font-medium text-stone-700">
-              {remaining === 0 ? '✅ Caixa completa!' : `Faltam ${remaining} salgados`}
+              {remaining === 0 ? '✅ Caixa completa!' : `Faltam ${remaining} ${categoryId.startsWith('doces') ? 'doces' : 'salgados'}`}
             </span>
             <span className={`text-lg font-bold ${remaining === 0 ? 'text-green-700' : 'text-amber-700'}`}>
               {total}/{bandejaSize}

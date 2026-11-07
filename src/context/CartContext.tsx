@@ -1,6 +1,7 @@
 'use client'
 
-import { createContext, useContext, useState, useCallback, useSyncExternalStore, ReactNode } from 'react'
+import { createContext, useContext, useState, useCallback, useRef, useSyncExternalStore, ReactNode } from 'react'
+import { usePathname } from 'next/navigation'
 import { CartItem } from '@/types'
 
 interface CartContextType {
@@ -57,6 +58,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const items = useSyncExternalStore(subscribe, readCart, () => EMPTY)
   const loaded = useSyncExternalStore(noopSubscribe, () => true, () => false)
   const [isOpen, setIsOpen] = useState(false)
+  // Short confirmation after adding something, so the customer knows it worked
+  const [toast, setToast] = useState<string | null>(null)
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const pathname = usePathname()
 
   const setItems = useCallback((update: (prev: CartItem[]) => CartItem[]) => {
     writeCart(update(readCart()))
@@ -65,6 +70,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const addItem = useCallback((item: Omit<CartItem, 'cartId'>) => {
     const cartId = `${item.productId}-${Date.now()}-${Math.random()}`
     setItems(prev => [...prev, { ...item, cartId }])
+    setToast(`Adicionado ao pedido: ${item.name}`)
+    if (toastTimer.current) clearTimeout(toastTimer.current)
+    toastTimer.current = setTimeout(() => setToast(null), 2500)
   }, [setItems])
 
   const removeItem = useCallback((cartId: string) => {
@@ -87,6 +95,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   return (
     <CartContext.Provider value={{ items, addItem, removeItem, updateQty, clearCart, total, itemCount, isOpen, setIsOpen, loaded }}>
       {children}
+      {toast && pathname === '/' && (
+        <div role="status" className="fixed bottom-24 inset-x-0 z-[60] flex justify-center px-4 pointer-events-none">
+          <div className="bg-stone-800 text-white text-sm font-medium px-4 py-2.5 rounded-xl shadow-lg max-w-sm text-center">
+            ✓ {toast}
+          </div>
+        </div>
+      )}
     </CartContext.Provider>
   )
 }

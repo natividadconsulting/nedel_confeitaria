@@ -104,6 +104,15 @@ export default function CheckoutPage() {
     preferredTime: '',
   })
   const [order, setOrder] = useState<{ waUrl: string; total: number } | null>(null)
+  const [copied, setCopied] = useState(false)
+
+  async function copyPix() {
+    try {
+      await navigator.clipboard.writeText(PIX_KEY)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
+    } catch {}
+  }
 
   // Wait for the saved cart before deciding the cart is empty
   if (!loaded) return <div className="min-h-screen bg-[#FDF8F0]" />
@@ -139,7 +148,16 @@ export default function CheckoutPage() {
             <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-4 text-left">
               <p className="text-xs font-bold text-green-700 uppercase tracking-wide mb-2">Passo 1 — Pague o PIX</p>
               <p className="text-sm text-green-800 mb-1">Chave PIX (Telefone)</p>
-              <p className="font-mono text-xl font-bold tracking-wide text-green-900">{PIX_KEY}</p>
+              <div className="flex items-center justify-between gap-3">
+                <p className="font-mono text-xl font-bold tracking-wide text-green-900 select-all">{PIX_KEY}</p>
+                <button
+                  onClick={copyPix}
+                  className="shrink-0 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-3 py-2 rounded-lg transition-colors"
+                >
+                  {copied ? '✓ Copiada' : 'Copiar chave'}
+                </button>
+              </div>
+              <p className="text-sm text-green-800 mt-2">Valor: <strong>{formatPrice(order.total)}</strong></p>
               <p className="text-xs text-green-600 mt-2">Envie o comprovante junto com seu pedido no WhatsApp.</p>
             </div>
           )}
@@ -169,12 +187,44 @@ export default function CheckoutPage() {
           <p className="text-xs text-stone-400 mt-4">
             Total: <strong className="text-stone-600">{formatPrice(order.total)}</strong>
           </p>
+          <button
+            onClick={() => setOrder(null)}
+            className="mt-4 text-sm text-stone-500 underline underline-offset-2 hover:text-stone-700"
+          >
+            ← Voltar e alterar o pedido
+          </button>
         </div>
       </div>
     )
   }
 
-  const isValid = form.name.trim() && form.phone.trim() && (form.deliveryType === 'retirada' || form.address?.trim()) && form.preferredDate && form.preferredTime
+  const phoneDigits = form.phone.replace(/\D/g, '')
+  const phoneOk = phoneDigits.length >= 10 && phoneDigits.length <= 13
+  const now = new Date()
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+  const dateOk = !!form.preferredDate && form.preferredDate >= today
+  // Tell the customer exactly what is still missing
+  const missing = [
+    !form.name.trim() && 'nome',
+    !phoneOk && (form.phone.trim() ? 'WhatsApp com DDD' : 'WhatsApp'),
+    !form.preferredDate ? 'data' : !dateOk && 'uma data a partir de hoje',
+    !form.preferredTime && 'horário',
+    form.deliveryType === 'entrega' && !form.address?.trim() && 'endereço',
+  ].filter(Boolean) as string[]
+  const isValid = missing.length === 0
+  const missingText = missing.length > 1 ? `${missing.slice(0, -1).join(', ')} e ${missing[missing.length - 1]}` : missing[0]
+  const paymentOptions = [
+    { value: 'pix', label: '💸 PIX (pagar agora)', desc: 'Pague via transferência PIX' },
+    form.deliveryType === 'retirada'
+      ? { value: 'cartao-retirada', label: '💳 Cartão na Retirada', desc: 'Pague ao buscar o pedido' }
+      : { value: 'cartao-entrega', label: '💳 Cartão na Entrega', desc: 'Pague ao receber em casa' },
+  ]
+  // Switching pickup/delivery keeps "card" as card, on the matching moment
+  const setDelivery = (type: CheckoutData['deliveryType']) => setForm(f => ({
+    ...f,
+    deliveryType: type,
+    paymentMethod: f.paymentMethod === 'pix' ? 'pix' : type === 'retirada' ? 'cartao-retirada' : 'cartao-entrega',
+  }))
 
   return (
     <div className="min-h-screen bg-[#FDF8F0]">
@@ -256,6 +306,7 @@ export default function CheckoutPage() {
             <div className="flex flex-col gap-2">
               <input
                 type="date"
+                min={today}
                 value={form.preferredDate}
                 onChange={e => setForm(f => ({ ...f, preferredDate: e.target.value }))}
                 className="w-full border-2 border-stone-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-amber-400"
@@ -277,7 +328,7 @@ export default function CheckoutPage() {
             {(['retirada', 'entrega'] as const).map(type => (
               <button
                 key={type}
-                onClick={() => setForm(f => ({ ...f, deliveryType: type }))}
+                onClick={() => setDelivery(type)}
                 className={`p-3 rounded-xl border-2 text-sm font-medium transition-all ${
                   form.deliveryType === type
                     ? 'border-amber-500 bg-amber-50 text-amber-800'
@@ -308,11 +359,7 @@ export default function CheckoutPage() {
         <div className="bg-white rounded-2xl border border-stone-100 p-4 space-y-3">
           <h2 className="font-semibold text-stone-800">Forma de Pagamento</h2>
           <div className="space-y-2">
-            {[
-              { value: 'pix', label: '💸 PIX (pagar agora)', desc: 'Pague via transferência PIX' },
-              { value: 'cartao-retirada', label: '💳 Cartão na Retirada', desc: 'Pague ao buscar o pedido' },
-              { value: 'cartao-entrega', label: '💳 Cartão na Entrega', desc: 'Pague ao receber em casa' },
-            ].map(opt => (
+            {paymentOptions.map(opt => (
               <button
                 key={opt.value}
                 onClick={() => setForm(f => ({ ...f, paymentMethod: opt.value as CheckoutData['paymentMethod'] }))}
@@ -361,7 +408,7 @@ export default function CheckoutPage() {
             <span>{formatPrice(total)}</span>
           </button>
           {!isValid && (
-            <p className="text-xs text-center text-stone-400 mt-2">Preencha nome, telefone, data e horário para continuar</p>
+            <p className="text-xs text-center text-stone-400 mt-2">Falta preencher: {missingText}</p>
           )}
         </div>
       </div>
