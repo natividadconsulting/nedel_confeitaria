@@ -88,7 +88,7 @@ function buildWhatsAppMessage(items: ReturnType<typeof useCart>['items'], total:
 }
 
 export default function CheckoutPage() {
-  const { items, total, clearCart, setIsOpen } = useCart()
+  const { items, total, clearCart, setIsOpen, loaded } = useCart()
   const router = useRouter()
 
   useEffect(() => { setIsOpen(false) }, [setIsOpen])
@@ -104,6 +104,9 @@ export default function CheckoutPage() {
     preferredTime: '',
   })
   const [order, setOrder] = useState<{ waUrl: string; total: number } | null>(null)
+
+  // Wait for the saved cart before deciding the cart is empty
+  if (!loaded) return <div className="min-h-screen bg-[#FDF8F0]" />
 
   if (items.length === 0 && !order) {
     return (
