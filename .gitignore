@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# private case file (own private repo: natividadconsulting/nedel_case_file)
+/case_file/
