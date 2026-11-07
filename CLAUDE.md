@@ -73,6 +73,8 @@ No backend. No database. No external payment API. Everything is client-side; che
 2. **Cartão na Retirada** — card at store pickup
 3. **Cartão na Entrega** — card to delivery driver
 
+Checkout offers PIX plus only the card option that fits the delivery choice (pickup → Cartão na Retirada, delivery → Cartão na Entrega). Full checkout rules: `PROJECT_NOTES.md` → Checkout Form.
+
 ### Deployment
 
 Vercel MCP configured at user level (`~/.claude-jonas/.claude.json`, transport: HTTP, URL: `https://mcp.vercel.com`). Use `/mcp` to connect, then deploy via MCP tools. Fallback: `npx vercel --yes`.

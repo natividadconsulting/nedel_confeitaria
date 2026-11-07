@@ -49,7 +49,7 @@ The size stored in the cart includes the group name when present: `"Torta Quadra
 
 ### `bulk` — quantity stepper logic
 - If the selected tier has `quantity === 1` (Por unidade), a qty stepper appears so the customer can pick how many individual units they want.
-- If the selected tier has `quantity > 1` (50un or 100un), no stepper — they're buying one lot. The notes textarea label changes to **"Composição do lote"** as a prompt for composition details.
+- If the selected tier has `quantity > 1` (50un or 100un), no stepper — they're buying one lot of that one item. The notes field stays "Observações", and a line under it points to **Montar Sua Caixa** for mixing items (until 2026-11-07 the label changed to "Composição do lote", which wrongly suggested mixing other items into a single-item lot).
 - Switching tiers resets quantity to 1.
 
 ---
@@ -160,15 +160,17 @@ Fields collected at checkout:
 | Field | Required | Notes |
 |-------|----------|-------|
 | Nome completo | Yes | |
-| WhatsApp | Yes | |
-| Data preferida | No | Date input |
-| Horário preferido | No | Time input, stacked below date on mobile |
+| WhatsApp | Yes | At least 10 digits (number with DDD) |
+| Data preferida | Yes | Date input; today or later (`min` = today) |
+| Horário preferido | Yes | Time input, stacked below date on mobile |
 | Retirada / Entrega | Yes | If Entrega, address is required |
 | Endereço | If entrega | Free text |
-| Forma de pagamento | Yes | PIX / Cartão na Retirada / Cartão na Entrega |
+| Forma de pagamento | Yes | PIX + the card option that fits: Cartão na Retirada (pickup) or Cartão na Entrega (delivery). Switching pickup/delivery moves a card choice to the matching option. |
 | Observações gerais | No | Appended at end of message |
 
-"Confirmar Pedido" button is disabled until name + phone are filled and (if entrega) address is filled. Tapping it builds the WhatsApp URL and shows a confirmation screen with a green "Enviar pelo WhatsApp" button. Tapping that opens WhatsApp, clears the cart, and redirects to the catalog after 1 second.
+"Confirmar Pedido" is disabled until every required field is valid; the line under it names what is still missing ("Falta preencher: WhatsApp com DDD, data e horário"). Tapping it builds the WhatsApp URL and shows a confirmation screen: for PIX, the key with a **Copiar chave** button and the amount; a green "Enviar pelo WhatsApp" button; and "← Voltar e alterar o pedido" (keeps the form). Tapping WhatsApp opens it, clears the cart, and redirects to the catalog after 1 second.
+
+**Other customer-experience details (2026-11-07):** adding an item shows a short "Adicionado ao pedido: …" message above the cart bar (menu page only); quantities can be typed as well as stepped; "Com Pelotine" shows its extra cost; switching category returns to the top of the list; the box progress says "doces" in Doces Tradicionais. The cart is read from localStorage through `useSyncExternalStore` (no hydration mismatch; open tabs stay in sync), and checkout waits for it before showing "Nenhum item".
 
 ---
 
@@ -177,7 +179,7 @@ Fields collected at checkout:
 **Vercel project:** nedel-confeitaria-pedidos  
 **GitHub repo:** natividadconsulting/nedel_confeitaria  
 **Deploy:** Push to `main` → Vercel auto-builds. No CLI needed.  
-**Vercel CLI:** Not installed locally. Use MCP tools (`mcp__vercel__*`) for deployment inspection.
+**Vercel CLI:** Installed on Jonas's Mac (v58, `--scope jonasnatividad`); the Vercel MCP tools (`mcp__vercel__*`) also work for deployment inspection.
 
 **Vercel Analytics:** Enabled. `@vercel/analytics` installed, `<Analytics />` added to `layout.tsx`. Data appears in the Vercel dashboard → Analytics tab.
 
