@@ -91,7 +91,7 @@ export default function CheckoutPage() {
   const { items, total, clearCart, setIsOpen } = useCart()
   const router = useRouter()
 
-  useEffect(() => { setIsOpen(false) }, [])
+  useEffect(() => { setIsOpen(false) }, [setIsOpen])
 
   const [form, setForm] = useState<CheckoutData>({
     name: '',

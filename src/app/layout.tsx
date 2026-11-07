@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nedel-confeitaria-pedidos.vercel.app"),
   title: "Confeitaria Nedel — Faça seu Pedido",
   description: "Salgados, doces e tortas sob encomenda. Porto Alegre - RS.",
   openGraph: {
